@@ -11,6 +11,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
@@ -23,8 +24,21 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-controller="TestCtrl">
+    <div ng-controller="TestCtrl">
         <h3>Hello {{data.message}}</h3>
+    </div>
+
+    <div>
+        <input type="text" ng-model="message">
+        <h3>{{message}}</h3>
+        <div ng-controller="ThisCtrl">
+            <input type="text" ng-model="message">
+            <h3>{{message}}</h3>
+        </div>
+        <div ng-controller="ThatCtrl">
+            <input type="text" ng-model="message">
+            <h3>{{message}}</h3>
+        </div>
     </div>
 
     <!--[if lt IE 9]>
@@ -46,7 +60,7 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/test.js"></script>
+        <script src="scripts/ng.js"></script>
         <!-- endbuild -->
 </body>
 </html>
