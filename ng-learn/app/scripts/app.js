@@ -13,6 +13,12 @@ app.factory("Share", function() {
     return { message: "Sharing is caring" }
 });
 
+app.filter("mirror", function(Share) {
+    return function(text) {
+        return text.split("").reverse().join("") + " " + Share.message;
+    }
+});
+
 function RedCtrl($scope, Share) {
     $scope.share = Share;
 }
