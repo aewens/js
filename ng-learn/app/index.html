@@ -57,6 +57,20 @@
             <h3>{{share.message|mirror}}</h3>
         </div>
     </div>
+    <br>
+    <hr>
+    <br>
+    <div>
+        <div ng-controller="PeopleCtrl">
+            <input type="text" ng-model="search.$">
+            <table class="table table-striped">
+                <tr ng-repeat="name in people.names | filter:search">
+                    <td>{{name.first}}</td>
+                    <td>{{name.last}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>

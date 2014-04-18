@@ -29,3 +29,26 @@ function BlueCtrl($scope, Share) {
         return message.split("").reverse().join("");
     }
 }
+
+app.factory("People", function() {
+    var People = {};
+    People.names = [
+        {
+            first: "Ned",
+            last: "Stark"
+        },
+        {
+            first: "John",
+            last: "Snow"
+        }
+    ];
+    return People;
+});
+
+function PeopleCtrl($scope, People) {
+    $scope.people = People;
+}
+
+
+
+
