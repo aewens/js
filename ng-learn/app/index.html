@@ -23,9 +23,8 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
-        <input type="text" ng-model="data.message">
-        <h3>{{data.message}}</h3>
+    <div class="container" ng-controller="TestCtrl">
+        <h3>Hello {{data.message}}</h3>
     </div>
 
     <!--[if lt IE 9]>
@@ -47,6 +46,7 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/test.js"></script>
         <!-- endbuild -->
 </body>
 </html>
