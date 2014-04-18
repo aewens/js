@@ -18,4 +18,8 @@ function RedCtrl($scope, Share) {
 }
 function BlueCtrl($scope, Share) {
     $scope.share = Share;
+
+    $scope.flipMessage = function(message) {
+        return message.split("").reverse().join("");
+    }
 }
