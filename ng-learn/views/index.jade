@@ -3,51 +3,34 @@ extends layout
 block app
     .ng-block
         div(ng-controller="TestCtrl")
-            h3 Hello {{data.message}}
+            h3 Hello 
+                span {{data.message}}
 
     .ng-block
-        input(type="text", ng-model="message")
+        input.form-control(type="text", ng-model="message")
         h3 {{message}}
         div(ng-controller="ThisCtrl")
-            input(type="text", ng-model="message")
+            input.form-control(type="text", ng-model="message")
             h3 {{message}}
         div(ng-controller="ThatCtrl")
-            input(type="text", ng-model="message")
+            input.form-control(type="text", ng-model="message")
             h3 {{message}}
 
     .ng-block
         div(ng-controller="RedCtrl")
-            input(type="text", ng-model="share.message")
+            input.form-control(type="text", ng-model="share.message")
             h3 {{share.message}}
         
         div(ng-controller="BlueCtrl")
-            input(type="text", ng-model="share.message")
+            input.form-control(type="text", ng-model="share.message")
             h3 {{flipMessage(share.message)}}
-            input(type="text", ng-model="share.message")
+            input.form-control(type="text", ng-model="share.message")
             h3 {{share.message|mirror}}
 
     .ng-block
         div(ng-controller="PeopleCtrl")
-            input(type="text", ng-model="search.$")
-            table(class="table table-striped")
+            input.form-control(type="text", ng-model="search.$")
+            table.table.table-striped
                 tr(ng-repeat="name in people.names | filter:search")
                     td {{name.first}}
                     td {{name.last}}
-
-block javascript
-    script(src="/components/jquery/dist/jquery.js")
-    script(src="/components/angular/angular.js")
-    script(src="/components/bootstrap/dist/js/bootstrap.js")
-    script(src="/components/angular-resource/angular-resource.js")
-    script(src="/components/angular-cookies/angular-cookies.js")
-    script(src="/components/angular-sanitize/angular-sanitize.js")
-    script(src="/components/angular-route/angular-route.js")
-
-    script(src="/javascripts/app.js")
-    script(src='/javascripts/effects.js')
-    script
-        var size  = (100 - (((document.body.clientWidth) * 0.01) * 2)) + "%";
-        var sizes = document.getElementsByClassName("size");
-        for (var i = 0, j = sizes.length; i < j; i += 1) {
-            sizes[i].style.width = size;
-        }

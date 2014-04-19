@@ -1,13 +1,15 @@
-@import 'nib'
-@import url('http://fonts.googleapis.com/css?family=Quicksand')
+@import "nib"
+@import url("http://fonts.googleapis.com/css?family=Quicksand")
+@import url("http://fonts.googleapis.com/css?family=Open+Sans")
 
 global-reset()
 
-primary     = #faf9f0
-slate-grey  = #708090
+primary = #faf9f0
+sgrey   = #708090
 
 html, body
-    font-family 'Helvetica'
+    font-family "Open Sans", sans-serif
+    font-size 14px
     background primary
     color #444
     z-index 1
@@ -17,12 +19,12 @@ html, body
     position relative
 
 header
-    font-family 'Quicksand'
+    font-family "Quicksand"
     padding 15px 10px
     text-align center
-    background slate-grey
-    border-bottom 1px solid darken(slate-grey, 30%)
-    text-shadow 0 -1px 0 darken(slate-grey, 30%)
+    background sgrey
+    border-bottom 1px solid darken(sgrey, 30%)
+    text-shadow 0 -1px 0 darken(sgrey, 30%)
     h1
         font-size 28px
         color #fff
@@ -40,6 +42,26 @@ header
     p
         margin-bottom 20px
 
+.ng-block
+    padding 10px
+    border-bottom 1px dotted #ddd
+    margin-bottom 10px
+    border-radius 2px 2px 0 0
+    border-radius 3px
+    border 1px solid #ccc
+    background lighten(primary, 5%)
+    box-shadow inset 0 0 0 3px rgba(sgrey, 0.1), 0 3px 0 -2px rgba(0,0,0,0.1)
+    *:not(:first-child)
+        margin-top 10px
+    span
+        display inline-block
+        background sgrey
+        color lighten(#fff, 0.3)
+        padding 4px 6px
+        border-radius 4px
+    h3
+        padding-left 14px
+
 .sidebar
     float left
     width 30%
@@ -47,10 +69,10 @@ header
         border-radius 3px
         border 1px solid #ccc
         margin-left 20px
-        background primary
-        box-shadow inset 0 0 0 3px rgba(#fff, 0.8), 0 3px 0 -2px rgba(0,0,0,0.1)
+        background lighten(primary, 5%)
+        box-shadow inset 0 0 0 3px rgba(sgrey, 0.1), 0 3px 0 -2px rgba(0,0,0,0.1)
         h1
-            font-family 'Quicksand'
+            font-family "Quicksand"
             margin 13px 10px 4px 10px
             padding-bottom 10px
             border-bottom 1px dotted #ddd
@@ -78,18 +100,6 @@ footer
     span.engine
         position absolute
         right 0
-
-.ng-block
-    padding 10px
-    border-bottom 1px dotted #ddd
-    margin-bottom 10px
-    border-radius 2px 2px 0 0
-    border-radius 3px
-    border 1px solid #ccc
-    background primary
-    box-shadow inset 0 0 0 3px rgba(#fff, 0.8), 0 3px 0 -2px rgba(0,0,0,0.1)
-    *:not(:first-child)
-        margin-top 10px
 
 .popup
     width 300px
@@ -130,10 +140,10 @@ footer
     transition transform 0.4s ease, -webkit-filter 0s ease 0.2s
 
 .btn
-    background slate-grey
-    border 1px solid darken(slate-grey, 30%)
+    background sgrey
+    border 1px solid darken(sgrey, 30%)
     border-radius 3px
-    color #fff
+    color lighten(#fff, 0.3)
     padding 4px 6px
     cursor pointer
     &:hover

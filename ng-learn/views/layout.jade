@@ -12,6 +12,7 @@ link(rel="stylesheet", href="/stylesheets/style.css")
     .container.size
         .main-content
             .ng(ng-app="nglearnApp")
+                // Angular Goes Here
                 block app
         .sidebar
             .widget
@@ -27,4 +28,21 @@ link(rel="stylesheet", href="/stylesheets/style.css")
         span.engine     Running on Express with AngularJS
 .popup
     | CLICK THE POP UP
-block javascript
+
+// JavaScript Goes Here
+script(src="/components/jquery/dist/jquery.js")
+script(src="/components/angular/angular.js")
+script(src="/components/bootstrap/dist/js/bootstrap.js")
+script(src="/components/angular-resource/angular-resource.js")
+script(src="/components/angular-cookies/angular-cookies.js")
+script(src="/components/angular-sanitize/angular-sanitize.js")
+script(src="/components/angular-route/angular-route.js")
+
+script(src="/javascripts/app.js")
+script(src='/javascripts/effects.js')
+script
+    var size  = (100 - (((document.body.clientWidth) * 0.01) * 2)) + "%";
+    var sizes = document.getElementsByClassName("size");
+    for (var i = 0, j = sizes.length; i < j; i += 1) {
+        sizes[i].style.width = size;
+    }
