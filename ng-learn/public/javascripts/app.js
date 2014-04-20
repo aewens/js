@@ -135,17 +135,17 @@
   });
 
   app.directive("enter", function() {
-    return function(scope, element) {
+    return function(scope, element, attrs) {
       return element.bind("mouseenter", function() {
-        return element.addClass("emphasis");
+        return element.addClass(attrs.enter);
       });
     };
   });
 
   app.directive("leave", function() {
-    return function(scope, element) {
+    return function(scope, element, attrs) {
       return element.bind("mouseleave", function() {
-        return element.removeClass("emphasis");
+        return element.removeClass(attrs.enter);
       });
     };
   });

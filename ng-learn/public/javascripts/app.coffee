@@ -70,14 +70,14 @@ app.directive "fromjs", ->
         document.getElementById("fromjs").appendChild(span).appendChild(text)
 
 app.directive "enter", ->
-    (scope, element) ->
+    (scope, element, attrs) ->
         element.bind "mouseenter", ->
-            element.addClass "emphasis"
+            element.addClass attrs.enter
 
 app.directive "leave", ->
-    (scope, element) ->
+    (scope, element, attrs) ->
         element.bind "mouseleave", ->
-            element.removeClass "emphasis"
+            element.removeClass attrs.enter
 
 
 
