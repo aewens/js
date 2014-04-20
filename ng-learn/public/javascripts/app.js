@@ -104,4 +104,34 @@
     };
   });
 
+  app.directive("fromjs", function() {
+    return {
+      restrict: "A",
+      link: function() {
+        return console.log("App.js made me here!");
+      }
+    };
+  });
+
+  app.directive("stacked", function() {
+    return {
+      restrict: "A",
+      link: function() {
+        return console.log("App.js stacked me here!");
+      }
+    };
+  });
+
+  app.directive("fromjs", function() {
+    return {
+      restrict: "C",
+      link: function() {
+        var span, text;
+        span = document.createElement("span");
+        text = document.createTextNode("App.js made me, too!");
+        return document.getElementById("fromjs").appendChild(span).appendChild(text);
+      }
+    };
+  });
+
 }).call(this);
