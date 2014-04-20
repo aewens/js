@@ -69,16 +69,28 @@ app.directive "fromjs", ->
         text = document.createTextNode "App.js made me, too!"
         document.getElementById("fromjs").appendChild(span).appendChild(text)
 
+app.directive "hoveron", ->
+    (scope, element, attrs) ->
+        element.bind "mouseenter", ->
+            element.addClass attrs.hoveron
+
+app.directive "hoveroff", ->
+    (scope, element, attrs) ->
+        element.bind "mouseleave", ->
+            element.removeClass attrs.hoveron
+
+app.controller "TwitterCtrl",
+class TwitterCtrl
+    constructor: ($scope) ->
+        $scope.loadMoreTweets = ->
+            console.log "Loading tweets..."
+        $scope.deleteTweets = ->
+            console.log "Deleting tweets..."
+
 app.directive "enter", ->
     (scope, element, attrs) ->
         element.bind "mouseenter", ->
-            element.addClass attrs.enter
-
-app.directive "leave", ->
-    (scope, element, attrs) ->
-        element.bind "mouseleave", ->
-            element.removeClass attrs.enter
-
+            scope.$apply(attrs.enter)
 
 
 
