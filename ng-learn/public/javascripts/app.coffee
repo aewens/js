@@ -65,9 +65,20 @@ app.directive "stacked", ->
 app.directive "fromjs", ->
     restrict: "C"
     link: ->
-        span = document.createElement("span")
-        text = document.createTextNode("App.js made me, too!")
+        span = document.createElement "span"
+        text = document.createTextNode "App.js made me, too!"
         document.getElementById("fromjs").appendChild(span).appendChild(text)
+
+app.directive "enter", ->
+    (scope, element) ->
+        element.bind "mouseenter", ->
+            element.addClass "emphasis"
+
+app.directive "leave", ->
+    (scope, element) ->
+        element.bind "mouseleave", ->
+            element.removeClass "emphasis"
+
 
 
 

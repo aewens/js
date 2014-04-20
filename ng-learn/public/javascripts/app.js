@@ -134,4 +134,20 @@
     };
   });
 
+  app.directive("enter", function() {
+    return function(scope, element) {
+      return element.bind("mouseenter", function() {
+        return element.addClass("emphasis");
+      });
+    };
+  });
+
+  app.directive("leave", function() {
+    return function(scope, element) {
+      return element.bind("mouseleave", function() {
+        return element.removeClass("emphasis");
+      });
+    };
+  });
+
 }).call(this);
