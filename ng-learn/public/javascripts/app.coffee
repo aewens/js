@@ -90,7 +90,53 @@ class TwitterCtrl
 app.directive "enter", ->
     (scope, element, attrs) ->
         element.bind "mouseenter", ->
-            scope.$apply(attrs.enter)
+            scope.$apply attrs.enter
+
+app.directive "player", ->
+    restrict: "E"
+    scope: {}
+    controller: class Player
+        constructor: ($scope) ->
+            $scope.powers = []
+            this.addHealth = ->
+                $scope.powers.push "health"
+            this.addStrength = ->
+                $scope.powers.push "stregth"
+            this.addDefense = ->
+                $scope.powers.push "defense"
+    link: (scope, element) ->
+        element.bind "mouseenter", ->
+            console.log scope.powers
+
+app.directive "health", ->
+    require: "player"
+    link: (scope, element, attrs, player) ->
+        player.addHealth()
+
+app.directive "strength", ->
+    require: "player"
+    link: (scope, element, attrs, player) ->
+        player.addStrength()
+
+app.directive "defense", ->
+    require: "player"
+    link: (scope, element, attrs, player) ->
+        player.addDefense()
+
+app.controller "TaskCtrl",
+class TaskCtrl
+    constructor: ($scope) ->
+        $scope.logTask = (task) ->
+            div  = document.createElement("div")
+            text = document.createTextNode task + " is done!"
+            document.getElementById("tasks").appendChild(div).appendChild(text)
+
+app.directive "servant", ->
+    restrict: "A"
+    scope: done: "&"
+    template: "<input type='text' ng-model='task' class='form-control'>" +
+              "<h3>{{task}}</h3>" +
+              "<span ng-click='done({task:task})'>Click me!</span>"
 
 
 

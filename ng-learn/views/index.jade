@@ -43,5 +43,31 @@ block app
         div(hoveron="emphasis", hoveroff) Hover over me
 
     .ng-block
+        div
+            b Read the console
+        hr
         div(ng-controller="TwitterCtrl")
-            span(enter="loadMoreTweets()") Roll over to lead more tweets
+            div(enter="loadMoreTweets()") Rollover to load more tweets
+        hr
+        player(health defense) Rollover to load durable player powers
+        hr
+        player(health strength) Rollover to load strong player powers
+
+    .ng-block
+        div(ng-controller="TaskCtrl")
+            div(servant, done="logTask(task)")
+            div(servant, done="logTask(task)")
+            div(servant, done="logTask(task)")
+            hr
+            ul#tasks
+            
+
+
+
+
+
+
+
+
+
+
