@@ -30,24 +30,53 @@ function BlueCtrl($scope, Share) {
     }
 }
 
-app.factory("People", function() {
-    var People = {};
-    People.names = [
+app.factory("Project", function() {
+    var Project = {};
+    Project.tools = [
         {
-            first: "Ned",
-            last: "Stark"
+            name: "Node.js",
+            isFor: "Server"
         },
         {
-            first: "John",
-            last: "Snow"
+            name: "Express",
+            isFor: "Framework"
+        },
+        {
+            name: "Jade",
+            isFor: "HTML"
+        },
+        {
+            name: "Stylus",
+            isFor: "CSS"
+        },
+        {
+            name: "Coffeescript",
+            isFor: "JavaScript"
+        },
+        {
+            name: "AngularJS",
+            isFor: "MVC"
         }
     ];
-    return People;
+    return Project;
 });
 
-function PeopleCtrl($scope, People) {
-    $scope.people = People;
+function ProjectCtrl($scope, Project) {
+    $scope.project = Project;
 }
+
+app.directive("fromjs", function() {
+    return {
+        restrict: "E",
+        template: "<span>App.js made me!</span>"
+    }
+});
+
+
+
+
+
+
 
 
 

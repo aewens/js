@@ -28,9 +28,13 @@ block app
             h3 {{share.message|mirror}}
 
     .ng-block
-        div(ng-controller="PeopleCtrl")
+        div(ng-controller="ProjectCtrl")
             input.form-control(type="text", ng-model="search.$")
             table.table.table-striped
-                tr(ng-repeat="name in people.names | filter:search")
-                    td {{name.first}}
-                    td {{name.last}}
+                tr(ng-repeat="tool in project.tools | orderBy:'-name' | limitTo:'6' | filter:search")
+                    td {{tool.name | lowercase}}
+                    td {{tool.isFor | uppercase}}
+    .ng-block
+        fromjs
+
+    
