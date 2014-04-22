@@ -133,10 +133,20 @@ class TaskCtrl
 
 app.directive "servant", ->
     restrict: "A"
-    scope: done: "&"
+    scope: 
+        done: "&"
     template: "<input type='text' ng-model='task' class='form-control'>" +
               "<h3>{{task}}</h3>" +
               "<span ng-click='done({task:task})'>Click me!</span>"
+
+app.filter "capitalise", ->
+    (text) ->
+        text.substring(0,1).toUpperCase() + text.substring 1
+
+app.directive "icecream", ->
+    scope: flavor: "@" #scope.flavor = attrs.flavor
+    template: "Today's ice cream flavor is: <span>{{flavor | capitalise}}</span>"
+
 
 
 
