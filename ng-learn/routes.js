@@ -1,7 +1,7 @@
 var title = 'ng-learn-express'
 
 exports.index = function(req, res) {
-	res.render('index', { title : title })
+    res.render('index', { title : title })
 }
 exports.partials = function (req, res) {
   var name = req.params.name;
