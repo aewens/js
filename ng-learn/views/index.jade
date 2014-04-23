@@ -62,7 +62,11 @@ block app
             ul#tasks
 
     .ng-block
-        div(icecream, flavor="vanilla")
+        div(ng-controller="FlavorCtrl")
+            div(icecream, flavor="{{icecream}}")
+
+        div(ng-controller="ChoiceCtrl")
+            div(drink, choice="drink")
             
 
 

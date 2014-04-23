@@ -143,9 +143,25 @@ app.filter "capitalise", ->
     (text) ->
         text.substring(0,1).toUpperCase() + text.substring 1
 
+app.controller "FlavorCtrl",
+class FlavorCtrl
+    constructor: ($scope) ->
+        $scope.icecream = "vanilla"
+
 app.directive "icecream", ->
-    scope: flavor: "@" #scope.flavor = attrs.flavor
+    scope: 
+        flavor: "@"
     template: "Today's ice cream flavor is: <span>{{flavor | capitalise}}</span>"
+
+app.controller "ChoiceCtrl",
+class ChoiceCtrl
+    constructor: ($scope) ->
+        $scope.drink = "soda"
+
+app.directive "drink", ->
+    scope: 
+        choice: "="
+    template: "Today's drink choice is: <span>{{choice | capitalise}}</span>"
 
 
 
