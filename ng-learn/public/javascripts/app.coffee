@@ -163,6 +163,17 @@ app.directive "drink", ->
         choice: "="
     template: "Today's drink choice is: <span>{{choice | capitalise}}</span>"
 
+app.controller "PhoneCtrl",
+class PhoneCtrl
+    constructor: ($scope) ->
+        $scope.callHome = (message) ->
+            console.log "They said: " + (message || "nothing...")
+
+app.directive "phone", ->
+    scope:
+        dial: "&"
+    template: "<input type='input' ng-model='value' class='form-control'>" +
+              "<span class='hover' ng-click='dial({message:value})'>Phone home</span>"
 
 
 

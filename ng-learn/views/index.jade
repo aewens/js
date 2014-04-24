@@ -40,24 +40,24 @@ block app
         #fromjs(class="fromjs")
 
     .ng-block
-        div(hoveron="emphasis", hoveroff) Hover over me
+        .hover(hoveron="emphasis", hoveroff) Hover over me
 
     .ng-block
         div
-            b Read the console
+            b Read the console | Hover
         hr
         div(ng-controller="TwitterCtrl")
-            div(enter="loadMoreTweets()") Rollover to load more tweets
+            .hover(enter="loadMoreTweets()") Rollover to load more tweets
         hr
-        player(health defense) Rollover to load durable player powers
+        player.hover(health defense) Rollover to load durable player powers
         hr
-        player(health strength) Rollover to load strong player powers
+        player.hover(health strength) Rollover to load strong player powers
 
     .ng-block
         div(ng-controller="TaskCtrl")
-            div(servant, done="logTask(task)")
-            div(servant, done="logTask(task)")
-            div(servant, done="logTask(task)")
+            .hover(servant, done="logTask(task)")
+            .hover(servant, done="logTask(task)")
+            .hover(servant, done="logTask(task)")
             hr
             ul#tasks
 
@@ -67,6 +67,12 @@ block app
 
         div(ng-controller="ChoiceCtrl")
             div(drink, choice="drink")
+
+    .ng-block
+        div(ng-controller="PhoneCtrl")
+            div(phone, dial="callHome(message)")
+            hr
+            div(phone, dial="callHome(message)")
             
 
 

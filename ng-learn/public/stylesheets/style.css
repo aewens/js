@@ -299,5 +299,7 @@ footer span.engine {
 .emphasis {
   font-weight: bold;
   color: #f0f;
+}
+.hover {
   cursor: pointer;
 }
