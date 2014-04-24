@@ -13,7 +13,7 @@ class ThisCtrl
     constructor: ($scope) ->
 
 app.factory "Share", ->
-    message: "Sharing is caring"
+    message: "Lorem ipsum"
 
 app.filter "mirror", (Share) ->
     (text) ->
@@ -135,7 +135,7 @@ app.directive "servant", ->
     restrict: "A"
     scope: 
         done: "&"
-    template: "<input type='text' ng-model='task' class='form-control'>" +
+    template: "<input type='text' ng-model='task' placeholder='Task' class='form-control'>" +
               "<h3>{{task}}</h3>" +
               "<span ng-click='done({task:task})'>Click me!</span>"
 
@@ -172,8 +172,26 @@ class PhoneCtrl
 app.directive "phone", ->
     scope:
         dial: "&"
-    template: "<input type='input' ng-model='value' class='form-control'>" +
+    template: "<input type='input' ng-model='value' placeholder='Message' class='form-control'>" +
               "<span class='hover' ng-click='dial({message:value})'>Phone home</span>"
+
+app.controller "MessageCtrl",
+class MessageCtrl
+    constructor: ($scope) ->
+        $scope.sendMessage = (server, user, message) ->
+            console.log user + "@" + server + ": " + message
+
+app.directive "client", ->
+    restrict: "E"
+    scope:
+        server:  "@"
+        user:    "="
+        ping: "&"
+    template: "<div>Server: {{server}}</div>" +
+              "<input type='text' ng-model='name' placeholder='Username' class='form-control'>" +
+              "<input type='text' ng-model='value' placeholder='Message' class='form-control'>" +
+              "<span class='hover' ng-click='ping({server: server, user: name, message: value})'>Send</span>"
+
 
 
 

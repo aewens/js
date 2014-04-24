@@ -7,29 +7,29 @@ block app
                 span {{data.message}}
 
     .ng-block
-        input.form-control(type="text", ng-model="message")
+        input.form-control(type="text", ng-model="message", placeholder="Parent")
         h3 {{message}}
         div(ng-controller="ThisCtrl")
-            input.form-control(type="text", ng-model="message")
+            input.form-control(type="text", ng-model="message", placeholder="Child")
             h3 {{message}}
         div(ng-controller="ThatCtrl")
-            input.form-control(type="text", ng-model="message")
+            input.form-control(type="text", ng-model="message", placeholder="Child")
             h3 {{message}}
 
     .ng-block
         div(ng-controller="RedCtrl")
-            input.form-control(type="text", ng-model="share.message")
+            input.form-control(type="text", ng-model="share.message", placeholder="Original")
             h3 {{share.message}}
         
         div(ng-controller="BlueCtrl")
-            input.form-control(type="text", ng-model="share.message")
+            input.form-control(type="text", ng-model="share.message", placeholder="Inverse")
             h3 {{flipMessage(share.message)}}
-            input.form-control(type="text", ng-model="share.message")
+            input.form-control(type="text", ng-model="share.message", placeholder="Mirror")
             h3 {{share.message|mirror}}
 
     .ng-block
         div(ng-controller="ProjectCtrl")
-            input.form-control(type="text", ng-model="search.$")
+            input.form-control(type="text", ng-model="search.$", placeholder="Search")
             table.table.table-striped
                 tr(ng-repeat="tool in project.tools | orderBy:'-name' | limitTo:'6' | filter:search")
                     td {{tool.name | lowercase}}
@@ -73,6 +73,15 @@ block app
             div(phone, dial="callHome(message)")
             hr
             div(phone, dial="callHome(message)")
+
+    .ng-block
+        div
+            b Read the console | Click
+        hr
+        div(ng-controller="MessageCtrl")
+            client(server="127.0.0.1", user="user", ping="sendMessage(server, user, message)")
+            hr
+            client(server="192.168.1.1", user="user", ping="sendMessage(server, user, message)")
             
 
 
