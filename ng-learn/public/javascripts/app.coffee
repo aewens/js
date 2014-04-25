@@ -192,6 +192,11 @@ app.directive "client", ->
               "<input type='text' ng-model='value' placeholder='Message' class='form-control'>" +
               "<span class='hover' ng-click='ping({server: server, user: name, message: value})'>Send</span>"
 
+app.directive "transclusion", ->
+    restrict: "E"
+    transclude: true
+    template: "<span>Hello from &lt;transclusion&gt;</span><div ng-transclude></div>"
+
 
 
 

@@ -338,4 +338,12 @@
     };
   });
 
+  app.directive("transclusion", function() {
+    return {
+      restrict: "E",
+      transclude: true,
+      template: "<span>Hello from &lt;transclusion&gt;</span><div ng-transclude></div>"
+    };
+  });
+
 }).call(this);
