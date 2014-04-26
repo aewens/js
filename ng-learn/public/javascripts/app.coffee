@@ -167,7 +167,7 @@ app.controller "PhoneCtrl",
 class PhoneCtrl
     constructor: ($scope) ->
         $scope.callHome = (message) ->
-            console.log "They said: " + (message || "nothing...")
+            console.log "You said: " + (message || "nothing...")
 
 app.directive "phone", ->
     scope:
@@ -197,13 +197,17 @@ app.directive "transclusion", ->
     transclude: true
     template: "<span>Hello from &lt;transclusion&gt;</span><div ng-transclude></div>"
 
-app.controller "SomeCtrl",
+someApp = {}
+someApp.controllers = {}
+someApp.controllers.SomeCtrl = 
 class SomeCtrl
     constructor: ($scope) ->
         this.someFunc = ->
             console.log "I do something"
 
         return $scope.SomeCtrl = this
+
+app.controller someApp.controllers
 
 
 
