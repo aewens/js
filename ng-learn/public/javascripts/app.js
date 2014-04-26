@@ -396,7 +396,7 @@
     return {
       restrict: "E",
       replace: true,
-      template: "<div>" + "<input type='text' ng-model='model.password' placeholder='Password...' class='form-control'>" + "</div>",
+      templateUrl: "passwordy.html",
       compile: function(tmplElem) {
         tmplElem.append(returnElement);
         return link;

@@ -100,8 +100,11 @@ block app
         hr
         showhide(title="{{model.title}}")
             | {{model.content}}
-            
+
     .ng-block
+        script(type="text/ng-template", id="passwordy.html")
+            div
+                input.form-control(type="text", ng-model="model.password", placeholder="Password...")
         passwordy
 
 
