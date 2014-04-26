@@ -159,6 +159,9 @@ header p {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
+.ng-block h2 {
+  font-size: 18px;
+}
 .ng-block h3 {
   padding-left: 14px;
 }

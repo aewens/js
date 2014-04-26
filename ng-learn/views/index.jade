@@ -90,7 +90,16 @@ block app
     .ng-block
         div(ng-controller="SomeCtrl")
             span.hover(ng-click="SomeCtrl.someFunc()") Click me, read the console
-            
+
+    .ng-block
+        div
+            b Click title to see content
+        hr
+        input.form-control(type="text", ng-model="model.title", placeholder="Title")
+        input.form-control(type="text", ng-model="model.content", placeholder="Content")
+        hr
+        showhide(title="{{model.title}}")
+            | {{model.content}}
 
 
 

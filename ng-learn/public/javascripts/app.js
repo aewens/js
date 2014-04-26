@@ -364,4 +364,21 @@
 
   app.controller(someApp.controllers);
 
+  app.directive("showhide", function() {
+    return {
+      restrict: "E",
+      transclude: true,
+      scope: {
+        title: "@"
+      },
+      template: "<h2 ng-click='toggleContent()' class='hover'>{{title}}</h2>" + "<span ng-show='isContentVisible' ng-transclude></span>",
+      link: function(scope) {
+        scope.isContentVisible = false;
+        return scope.toggleContent = function() {
+          return scope.isContentVisible = !scope.isContentVisible;
+        };
+      }
+    };
+  });
+
 }).call(this);

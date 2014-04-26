@@ -209,6 +209,18 @@ class SomeCtrl
 
 app.controller someApp.controllers
 
+app.directive "showhide", ->
+    restrict: "E"
+    transclude: true
+    scope:
+        title: "@"
+    template: "<h2 ng-click='toggleContent()' class='hover'>{{title}}</h2>" +
+              "<span ng-show='isContentVisible' ng-transclude></span>"
+    link: (scope) ->
+        scope.isContentVisible = false
+        scope.toggleContent = ->
+            scope.isContentVisible = !scope.isContentVisible
+
 
 
 
