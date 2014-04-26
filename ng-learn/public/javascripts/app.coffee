@@ -229,10 +229,30 @@ app.directive "passwordy", ->
                     returnElement.addClass("ng-output")
                 else
                     returnElement.removeClass("ng-output")
-
     restrict: "E"
     replace: true
     templateUrl: "passwordy.html"
+    compile: (tmplElem) ->
+        tmplElem.append returnElement
+        return link
+
+app.run ($templateCache) ->
+    $templateCache.put "passwordy2.html", "<div>" + 
+                                             "<input type='text' ng-model='model.password2' " +
+                                             "placeholder='Password...' class='form-control'>" +
+                                          "</div>"
+
+app.directive "passwordy2", ($templateCache) ->
+    returnElement = angular.element "<h3>{{model.password2}}</h3>"
+    this.link = (scope, element) ->
+            scope.$watch "model.password2", (value) ->
+                if value != undefined and value.toLowerCase() is "password"
+                    returnElement.addClass("ng-output")
+                else
+                    returnElement.removeClass("ng-output")
+    restrict: "E"
+    replace: true
+    template: $templateCache.get "passwordy2.html"
     compile: (tmplElem) ->
         tmplElem.append returnElement
         return link
