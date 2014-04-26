@@ -197,6 +197,14 @@ app.directive "transclusion", ->
     transclude: true
     template: "<span>Hello from &lt;transclusion&gt;</span><div ng-transclude></div>"
 
+app.controller "SomeCtrl",
+class SomeCtrl
+    constructor: ($scope) ->
+        this.someFunc = ->
+            console.log "I do something"
+
+        return $scope.SomeCtrl = this
+
 
 
 

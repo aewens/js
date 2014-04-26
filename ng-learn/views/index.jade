@@ -86,6 +86,10 @@ block app
     .ng-block
         transclusion
             span I was transcluded!
+
+    .ng-block
+        div(ng-controller="SomeCtrl")
+            span.hover(ng-click="SomeCtrl.someFunc()") Click me, read the console
             
 
 
