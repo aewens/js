@@ -221,6 +221,28 @@ app.directive "showhide", ->
         scope.toggleContent = ->
             scope.isContentVisible = !scope.isContentVisible
 
+app.directive "passwordy", ->
+    returnElement = angular.element "<h3>{{model.password}}</h3>"
+    this.link = (scope, element) ->
+            scope.$watch "model.password", (value) ->
+                if value != undefined and value.toLowerCase() is "password"
+                    returnElement.addClass("ng-output")
+                else
+                    returnElement.removeClass("ng-output")
+
+    restrict: "E"
+    replace: true
+    template: "<div>" +
+                "<input type='text' ng-model='model.password' placeholder='Password...' class='form-control'>" +
+              "</div>"
+    compile: (tmplElem) ->
+        tmplElem.append returnElement
+        return link
+    
+        
+            
+                
+
 
 
 

@@ -381,4 +381,27 @@
     };
   });
 
+  app.directive("passwordy", function() {
+    var returnElement;
+    returnElement = angular.element("<h3>{{model.password}}</h3>");
+    this.link = function(scope, element) {
+      return scope.$watch("model.password", function(value) {
+        if (value !== void 0 && value.toLowerCase() === "password") {
+          return returnElement.addClass("ng-output");
+        } else {
+          return returnElement.removeClass("ng-output");
+        }
+      });
+    };
+    return {
+      restrict: "E",
+      replace: true,
+      template: "<div>" + "<input type='text' ng-model='model.password' placeholder='Password...' class='form-control'>" + "</div>",
+      compile: function(tmplElem) {
+        tmplElem.append(returnElement);
+        return link;
+      }
+    };
+  });
+
 }).call(this);
