@@ -268,8 +268,15 @@ app.config ($routeProvider) ->
     .when "/say/:message",
         template: "<span>URL says: {{model.message}}</span>"
         controller: "Route2Ctrl"
+    .when "/tell/:message",
+        redirectTo: (routeParams, path, search) ->
+            console.log routeParams # {message: ~}
+            console.log path        # /tell/~
+            console.log search      # {\?.+:    ~}
+            return "/"
     .otherwise
-        template: "You are not at the root domain"
+        redirectTo: ->
+            "/"
 
 app.controller "Route1Ctrl", ($scope) ->
     $scope.model = 

@@ -438,8 +438,17 @@
     }).when("/say/:message", {
       template: "<span>URL says: {{model.message}}</span>",
       controller: "Route2Ctrl"
+    }).when("/tell/:message", {
+      redirectTo: function(routeParams, path, search) {
+        console.log(routeParams);
+        console.log(path);
+        console.log(search);
+        return "/";
+      }
     }).otherwise({
-      template: "You are not at the root domain"
+      redirectTo: function() {
+        return "/";
+      }
     });
   });
 
