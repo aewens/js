@@ -431,4 +431,17 @@
     };
   });
 
+  app.config(function($routeProvider) {
+    return $routeProvider.when("/", {
+      templateUrl: "partials/route",
+      controller: "RouteCtrl"
+    });
+  });
+
+  app.controller("RouteCtrl", function($scope) {
+    return $scope.model = {
+      message: "Route provider put me here!"
+    };
+  });
+
 }).call(this);

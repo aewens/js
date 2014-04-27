@@ -256,6 +256,18 @@ app.directive "passwordy2", ($templateCache) ->
     compile: (tmplElem) ->
         tmplElem.append returnElement
         return link
+
+# app.directive "ng-view", ->
+#     restrict: ""
+
+app.config ($routeProvider) ->
+    $routeProvider.when "/",
+        templateUrl: "partials/route",
+        controller:  "RouteCtrl"
+
+app.controller "RouteCtrl", ($scope) ->
+    $scope.model = 
+        message: "Route provider put me here!"
     
         
             
