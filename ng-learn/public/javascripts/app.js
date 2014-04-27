@@ -452,7 +452,19 @@
     });
   });
 
-  app.controller("Route1Ctrl", function($scope) {
+  app.controller("Route1Ctrl", function($scope, $q) {
+    var defer;
+    defer = $q.defer();
+    defer.promise.then(function(weapon) {
+      console.log("You have my " + weapon + ".");
+      return "bow";
+    }).then(function(weapon) {
+      console.log("And my " + weapon + ".");
+      return "axe";
+    }).then(function(weapon) {
+      return console.log("And my " + weapon + "!");
+    });
+    defer.resolve("sword");
     return $scope.model = {
       message: "Route provider put me here!"
     };

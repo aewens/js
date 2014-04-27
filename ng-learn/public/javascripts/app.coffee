@@ -278,7 +278,19 @@ app.config ($routeProvider) ->
         redirectTo: ->
             "/"
 
-app.controller "Route1Ctrl", ($scope) ->
+app.controller "Route1Ctrl", ($scope, $q) ->
+    defer = $q.defer()
+    defer.promise
+    .then (weapon) ->
+        console.log "You have my " + weapon + "."
+        return "bow"
+    .then (weapon) ->
+        console.log "And my " + weapon + "."
+        return "axe"
+    .then (weapon) ->
+        console.log "And my " + weapon + "!"
+    defer.resolve("sword")
+
     $scope.model = 
         message: "Route provider put me here!"
 
