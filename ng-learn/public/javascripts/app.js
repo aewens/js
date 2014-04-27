@@ -434,7 +434,17 @@
   app.config(function($routeProvider) {
     return $routeProvider.when("/", {
       templateUrl: "partials/route",
-      controller: "Route1Ctrl"
+      controller: "Route1Ctrl",
+      resolve: {
+        app: function($q, $timeout) {
+          var defer;
+          defer = $q.defer();
+          $timeout(function() {
+            return defer.resolve();
+          }, 1000);
+          return defer.promise;
+        }
+      }
     }).when("/say/:message", {
       template: "<span>URL says: {{model.message}}</span>",
       controller: "Route2Ctrl"
@@ -466,7 +476,7 @@
     });
     defer.resolve("sword");
     return $scope.model = {
-      message: "Route provider put me here!"
+      message: "Route provider put me here, but it took a a second."
     };
   });
 

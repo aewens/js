@@ -265,6 +265,14 @@ app.config ($routeProvider) ->
     .when "/",
         templateUrl: "partials/route",
         controller: "Route1Ctrl"
+        resolve:
+            app: ($q, $timeout) ->
+                defer = $q.defer()
+                $timeout ->
+                    defer.resolve()
+                , 1000
+                defer.promise
+
     .when "/say/:message",
         template: "<span>URL says: {{model.message}}</span>"
         controller: "Route2Ctrl"
@@ -292,7 +300,7 @@ app.controller "Route1Ctrl", ($scope, $q) ->
     defer.resolve("sword")
 
     $scope.model = 
-        message: "Route provider put me here!"
+        message: "Route provider put me here, but it took a a second."
 
 app.controller "Route2Ctrl", ($scope, $routeParams) ->
     $scope.model = 
