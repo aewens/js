@@ -261,13 +261,23 @@ app.directive "passwordy2", ($templateCache) ->
 #     restrict: ""
 
 app.config ($routeProvider) ->
-    $routeProvider.when "/",
+    $routeProvider
+    .when "/",
         templateUrl: "partials/route",
-        controller:  "RouteCtrl"
+        controller: "Route1Ctrl"
+    .when "/say/:message",
+        template: "<span>URL says: {{model.message}}</span>"
+        controller: "Route2Ctrl"
+    .otherwise
+        template: "You are not at the root domain"
 
-app.controller "RouteCtrl", ($scope) ->
+app.controller "Route1Ctrl", ($scope) ->
     $scope.model = 
         message: "Route provider put me here!"
+
+app.controller "Route2Ctrl", ($scope, $routeParams) ->
+    $scope.model = 
+        message: $routeParams.message
     
         
             

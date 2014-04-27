@@ -434,13 +434,24 @@
   app.config(function($routeProvider) {
     return $routeProvider.when("/", {
       templateUrl: "partials/route",
-      controller: "RouteCtrl"
+      controller: "Route1Ctrl"
+    }).when("/say/:message", {
+      template: "<span>URL says: {{model.message}}</span>",
+      controller: "Route2Ctrl"
+    }).otherwise({
+      template: "You are not at the root domain"
     });
   });
 
-  app.controller("RouteCtrl", function($scope) {
+  app.controller("Route1Ctrl", function($scope) {
     return $scope.model = {
       message: "Route provider put me here!"
+    };
+  });
+
+  app.controller("Route2Ctrl", function($scope, $routeParams) {
+    return $scope.model = {
+      message: $routeParams.message
     };
   });
 
