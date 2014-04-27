@@ -266,12 +266,7 @@ app.config ($routeProvider) ->
         templateUrl: "partials/route",
         controller: "Route1Ctrl"
         resolve:
-            app: ($q, $timeout) ->
-                defer = $q.defer()
-                $timeout ->
-                    defer.resolve()
-                , 1000
-                defer.promise
+            loadPromises: routeCtrl.loadPromises
 
     .when "/say/:message",
         template: "<span>URL says: {{model.message}}</span>"
@@ -286,25 +281,48 @@ app.config ($routeProvider) ->
         redirectTo: ->
             "/"
 
-app.controller "Route1Ctrl", ($scope, $q) ->
-    defer = $q.defer()
-    defer.promise
-    .then (weapon) ->
-        console.log "You have my " + weapon + "."
-        return "bow"
-    .then (weapon) ->
-        console.log "And my " + weapon + "."
-        return "axe"
-    .then (weapon) ->
-        console.log "And my " + weapon + "!"
-    defer.resolve("sword")
+routeCtrl = app.controller "Route1Ctrl", 
+class Route1Ctrl
+    constructor: ($scope, $q, $route) ->
+        console.log $route
+        defer = $q.defer()
+        defer.promise
+        .then (weapon) ->
+            console.log "You have my " + weapon + "."
+            return "bow"
+        .then (weapon) ->
+            console.log "And my " + weapon + "."
+            return "axe"
+        .then (weapon) ->
+            console.log "And my " + weapon + "!"
+        defer.resolve("sword")
 
-    $scope.model = 
-        message: "Route provider put me here, but it took a a second."
+        $scope.model = 
+            message: "Route provider put me here, but it took a a second."
 
-app.controller "Route2Ctrl", ($scope, $routeParams) ->
-    $scope.model = 
-        message: $routeParams.message
+routeCtrl.loadPromises = 
+    ($q, $timeout) ->
+        defer = $q.defer()
+        $timeout ->
+            defer.reject "Promises were rejected"
+        , 1000
+        defer.promise  
+
+app.controller "Route2Ctrl", 
+class Route2Ctrl
+    constructor: ($scope, $routeParams) ->
+        $scope.model = 
+            message: $routeParams.message
+
+app.controller "FailSafe",
+class FailSafe
+    constructor: ($rootScope) ->
+        $rootScope.$on "$routeChangeError", (event, current, previous, rejection) ->
+            console.log event
+            console.log current
+            console.log previous
+            console.log rejection
+
     
         
             
