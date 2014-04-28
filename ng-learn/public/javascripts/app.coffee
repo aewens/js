@@ -254,11 +254,9 @@ app.directive "passwordy2", ($templateCache) ->
     replace: true
     template: $templateCache.get "passwordy2.html"
     compile: (tmplElem) ->
+        tmplElem[0].style.marginTop = "10px"
         tmplElem.append returnElement
         return link
-
-# app.directive "ng-view", ->
-#     restrict: ""
 
 app.config ($routeProvider) ->
     $routeProvider
@@ -323,6 +321,13 @@ class FailSafe
             console.log previous
             console.log rejection
 
+app.directive "error", ($rootScope) ->
+    restrict: "E"
+    replace: true
+    template: "<span ng-show='isError'>Error: Promises were not resolved!</span>"
+    link: (scope) ->
+        $rootScope.$on "$routeChangeError", (event, current, previous, rejection) ->
+            scope.isError = true
     
         
             

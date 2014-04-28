@@ -425,6 +425,7 @@
       replace: true,
       template: $templateCache.get("passwordy2.html"),
       compile: function(tmplElem) {
+        tmplElem[0].style.marginTop = "10px";
         tmplElem.append(returnElement);
         return link;
       }
@@ -512,5 +513,18 @@
     return FailSafe;
 
   })());
+
+  app.directive("error", function($rootScope) {
+    return {
+      restrict: "E",
+      replace: true,
+      template: "<span ng-show='isError'>Error: Promises were not resolved!</span>",
+      link: function(scope) {
+        return $rootScope.$on("$routeChangeError", function(event, current, previous, rejection) {
+          return scope.isError = true;
+        });
+      }
+    };
+  });
 
 }).call(this);
