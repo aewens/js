@@ -116,6 +116,14 @@ block app
     .ng-block
         error
 
+    .ng-block
+        div(ng-controller="ProvideCtrl")
+            | Person's full name: 
+            span {{data.name}}
+            br
+            | Person's age: 
+            span {{data.age}}
+
 
 
 

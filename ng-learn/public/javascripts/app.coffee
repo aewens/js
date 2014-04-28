@@ -315,10 +315,11 @@ class Route2Ctrl
 app.controller "FailSafe",
 class FailSafe
     constructor: ($rootScope) ->
+        # Other events include:
+        #   routeChangeStart
+        #   routeChangeSuccess
         $rootScope.$on "$routeChangeError", (event, current, previous, rejection) ->
-            console.log event
-            console.log current
-            console.log previous
+            console.log event, current, previous
             console.log rejection
 
 app.directive "error", ($rootScope) ->
@@ -328,6 +329,29 @@ app.directive "error", ($rootScope) ->
     link: (scope) ->
         $rootScope.$on "$routeChangeError", (event, current, previous, rejection) ->
             scope.isError = true
+
+# Where factories come from
+app.config ($provide) ->
+    _age = ""
+    # provider :: alias for `factory`
+    $provide.provider "person", ->
+        setAge: (value) ->
+            _age = value
+        $get: ->
+            name: "No Name"
+            age: _age
+
+app.config (personProvider) ->
+    personProvider.setAge "Unknown"
+
+app.controller "ProvideCtrl",
+class ProvideCtrl
+    constructor: ($scope, person) ->
+        $scope.data = 
+            name: person.name
+            age:  person.age
+
+
     
         
             
