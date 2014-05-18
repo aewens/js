@@ -61,7 +61,7 @@ header
     box-shadow inset 0 0 0 3px rgba(sgrey, 0.1), 0 3px 0 -2px rgba(0,0,0,0.1)
     *:not(:first-child)
         margin-top 10px
-    span, .ng-output
+    .ng-output
         display inline-block
         background sgrey
         color darken(#fff, 30%)
@@ -123,10 +123,10 @@ footer
     left 0
     background #000
     z-index 9000
-    visibility: hidden
+    visibility hidden
     opacity 0
     &.on
-        visibility: visible
+        visibility visible
         opacity 0.9
 
 .popup
@@ -143,14 +143,14 @@ footer
     border-radius 10px
     box-shadow  0 0 10px 1px rgba(112,128,144,0.5)
     opacity 0
-    visibility: hidden
+    visibility hidden
     cursor default
     // transform scale(1.1)
     pointer-event none
     z-index 9001
     &.on
         opacity 1
-        visibility: visible
+        visibility visible
         // transform scale(1)
         cursor pointer
         pointer-event auto
@@ -167,7 +167,7 @@ footer
 .popup, .app
     transition opacity 2s ease //, -webkit-filter 0.2s ease
 
-.btn, .theme
+.button, .theme
     background #000
     border 1px solid darken(sgrey, 30%)
     border-radius 3px

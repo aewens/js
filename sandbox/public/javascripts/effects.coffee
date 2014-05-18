@@ -1,11 +1,9 @@
 $ ->
+    $("input[type=text]").addClass "form-control"
+    $("input[type=text]")[0].focus()
     if $(".theme").is ".theme.default"
         console.log "So colorful. Much hues. Very art. Wow."
-        $("header").addClass "color"
-        $("body").addClass "color"
-        $("article").addClass "color"
-        $(".widget").addClass "color"
-        $(".btn, .theme").addClass "color"
+        $("header,body,article,.widget,.btn,.theme").addClass "color"
     $(".btn, .popup").on "click", ->
         if not $(this).is ".btn.on" and not $(this).is ":hidden"
             $(".popup, .app, .btn, .backdrop").toggleClass "on"
@@ -15,11 +13,7 @@ $ ->
             $(".popup, .app, .btn, .backdrop").toggleClass "on"
             
     $(".theme").on "click", ->
-        $("header").toggleClass "color"
-        $("body").toggleClass "color"
-        $("article").toggleClass "color"
-        $(".widget").toggleClass "color"
-        $(".btn, .theme").toggleClass "color"
+        $("header,body,article,.widget,.btn,.theme").toggleClass "color"
         if $(this).is ".theme.default"
             $(this).removeClass("default").addClass "monochrome"
         else

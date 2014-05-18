@@ -2,7 +2,10 @@ extends layout
 
 block app
     article
-        | Hello, World!
+        .input-group
+            input(type="text", placeholder="How does that make you feel?")
+            span.input-group-btn
+                button.btn.btn-default(type="button") Send
     //- .ng-block
     //-     div(ng-controller="TestCtrl")
     //-         h3 Hello
