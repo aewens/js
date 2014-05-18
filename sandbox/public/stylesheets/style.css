@@ -1,0 +1,373 @@
+@import url("http://fonts.googleapis.com/css?family=Quicksand");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:700,400");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+  color: #000;
+  background: #fff;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+a img {
+  border: none;
+}
+html,
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  background: #fff;
+  color: #000;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+html.color,
+body.color {
+  background: #faf9f0;
+  color: #444;
+}
+header {
+  font-family: "Quicksand";
+  padding: 15px 10px;
+  text-align: center;
+  background: #000;
+  border-bottom: 1px solid #000;
+  text-shadow: 0 -1px 0 #000;
+}
+header h1 {
+  font-size: 28px;
+  color: #fff;
+}
+header p {
+  font-size: 14px;
+  color: #fff;
+}
+header.color {
+  background: #708090;
+  border-bottom: 1px solid #4e5a65;
+  text-shadow: 0 -1px 0 #4e5a65;
+}
+header.color p {
+  color: #d9d9d9;
+}
+.container {
+  margin: 50px auto;
+  overflow: hidden;
+}
+.main-content {
+  float: left;
+  width: 70%;
+}
+.main-content p {
+  margin-bottom: 20px;
+}
+.ng-block,
+article {
+  padding: 10px;
+  border-bottom: 1px dotted #ddd;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
+}
+.ng-block *:not(:first-child),
+article *:not(:first-child) {
+  margin-top: 10px;
+}
+.ng-block span,
+article span,
+.ng-block .ng-output,
+article .ng-output {
+  display: inline-block;
+  background: #708090;
+  color: #b3b3b3;
+  padding: 4px 6px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+.ng-block h2,
+article h2 {
+  font-size: 18px;
+}
+.ng-block h3,
+article h3 {
+  padding-left: 14px;
+}
+.ng-block.color,
+article.color {
+  background: #fbfaf4;
+  -webkit-border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.ng-block.color *:not(:first-child),
+article.color *:not(:first-child) {
+  margin-top: 10px;
+}
+.ng-block.color span,
+article.color span,
+.ng-block.color .ng-output,
+article.color .ng-output {
+  display: inline-block;
+  background: #708090;
+  color: #b3b3b3;
+  padding: 4px 6px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+.ng-block.color h2,
+article.color h2 {
+  font-size: 18px;
+}
+.ng-block.color h3,
+article.color h3 {
+  padding-left: 14px;
+}
+.sidebar {
+  float: left;
+  width: 30%;
+}
+.sidebar .widget {
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin-left: 20px;
+  background: #fff;
+  -webkit-box-shadow: inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
+}
+.sidebar .widget h1 {
+  font-family: "Quicksand";
+  margin: 13px 10px 4px 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #ddd;
+  -webkit-border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;
+}
+.sidebar .widget p {
+  font-size: 13px;
+  padding: 5px 10px 0px;
+  margin-bottom: 10px;
+}
+.sidebar .widget.color {
+  background: #fbfaf4;
+}
+p {
+  line-height: 1.8;
+}
+footer {
+  margin: 50px auto;
+  border-top: 1px dotted #ccc;
+  padding-top: 5px;
+  font-size: 13px;
+  position: relative;
+  z-index: 1;
+}
+footer span {
+  padding-top: 2px;
+}
+footer span.copyright {
+  position: absolute;
+  left: 0;
+}
+footer span.engine {
+  position: absolute;
+  right: 0;
+}
+.backdrop {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  visibility: hidden;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.backdrop.on {
+  visibility: visible;
+  opacity: 0.9;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+  filter: alpha(opacity=90);
+}
+.popup {
+  width: 300px;
+  height: 200px;
+  line-height: 200px;
+  background: rgba(255,255,255,0.95);
+  position: fixed;
+  margin-top: -100px;
+  margin-left: -150px;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 10px 1px rgba(112,128,144,0.5);
+  box-shadow: 0 0 10px 1px rgba(112,128,144,0.5);
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  visibility: hidden;
+  cursor: default;
+  pointer-event: none;
+  z-index: 9001;
+}
+.popup.on {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  visibility: visible;
+  cursor: pointer;
+  pointer-event: auto;
+}
+.popup p {
+  padding: 15px 0 0;
+}
+.app.on {
+  pointer-event: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+.popup,
+.app {
+  -webkit-transition: opacity 2s ease;
+  -moz-transition: opacity 2s ease;
+  -o-transition: opacity 2s ease;
+  -ms-transition: opacity 2s ease;
+  transition: opacity 2s ease;
+}
+.btn,
+.theme {
+  background: #000;
+  border: 1px solid #4e5a65;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #fff;
+  padding: 4px 6px;
+  cursor: pointer;
+}
+.btn:hover,
+.theme:hover {
+  -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.5);
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+  color: #f2f2f2;
+}
+.btn.on,
+.theme.on {
+  color: #b3b3b3;
+  cursor: default;
+}
+.btn.default:after,
+.theme.default:after {
+  content: "Monochrome";
+}
+.btn.monochrome:after,
+.theme.monochrome:after {
+  content: "Default";
+}
+.btn.color,
+.theme.color {
+  background: #708090;
+}
+.theme {
+  margin-left: 5px;
+}
+.off {
+  display: none;
+}
+.emphasis {
+  font-weight: bold;
+  color: #f0f;
+}
+.hover {
+  cursor: pointer;
+}
