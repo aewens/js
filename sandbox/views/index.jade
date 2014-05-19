@@ -3,9 +3,15 @@ extends layout
 block app
     article
         .input-group
-            input(type="text", placeholder="How does that make you feel?")
+            input(type="text", placeholder="Command...")
             span.input-group-btn
-                button.btn.btn-default(type="button") Send
+                button.btn.btn-default(type="button") Execute
+    
+    canvas
+        | Your browser does not support &lt;canvas&gt;, 
+        | try one of 
+        a(href="#") these
+        |  instead.
     //- .ng-block
     //-     div(ng-controller="TestCtrl")
     //-         h3 Hello

@@ -1,8 +1,8 @@
 $ ->
+    # $("input[type=text]")[0].focus()
+    $("canvas")[0].focus()
     $("input[type=text]").addClass "form-control"
-    $("input[type=text]")[0].focus()
     if $(".theme").is ".theme.default"
-        console.log "So colorful. Much hues. Very art. Wow."
         $("header,body,article,.widget,.btn,.theme").addClass "color"
     $(".btn, .popup").on "click", ->
         if not $(this).is ".btn.on" and not $(this).is ":hidden"
