@@ -63,9 +63,8 @@
     cmd = document.getElementById("cmd");
     if (e.target !== cmd) {
       keyCode = e.keyCode ? e.keyCode : e.which;
-      switch (keyCode) {
-        case 27:
-          return cmd.focus();
+      if (keyCode === 27) {
+        return cmd.focus();
       }
     }
   };

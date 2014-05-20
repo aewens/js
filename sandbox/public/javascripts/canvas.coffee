@@ -70,8 +70,7 @@ document.onkeydown = (e) ->
     cmd = document.getElementById("cmd")
     if e.target != cmd
         keyCode = if e.keyCode then e.keyCode else e.which
-        switch keyCode
-            when 27
+        if keyCode == 27
                 cmd.focus()
 
 cmd = document.getElementById("cmd")

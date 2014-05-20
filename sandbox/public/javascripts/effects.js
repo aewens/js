@@ -4,7 +4,7 @@
     $("input[type=text]")[0].focus();
     $("input[type=text]").addClass("form-control");
     if ($(".theme").is(".theme.default")) {
-      $("header,html,body,article,.widget,.btn,.theme").addClass("color");
+      $("header,html,body,article,.widget,.btn,.theme").addClass("transition");
     }
     $(".button, .popup").on("click", function() {
       if (!$(this).is(".button.on" && !$(this).is(":hidden"))) {
@@ -17,7 +17,8 @@
       }
     });
     return $(".theme").on("click", function() {
-      $("header,html,body,article,.widget,.btn,.theme").toggleClass("color");
+      $("header,html,body,article,.widget,.btn,.theme").toggleClass("mono");
+      $("input[type=text]")[0].focus();
       if ($(this).is(".theme.default")) {
         return $(this).removeClass("default").addClass("monochrome");
       } else {
