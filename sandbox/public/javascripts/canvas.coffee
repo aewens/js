@@ -64,17 +64,38 @@ draw = ->
     
     # Recurse
     requestID = requestAnimFrame draw
-        
-document.getElementById("exec").onclick = ->
-    command = document.getElementById("cmd").value.toLowerCase()
-    switch command
-        when "start" 
-            requestID = requestAnimationFrame draw
-        when "stop"  
-            cancelAnimationFrame requestID
-        when "clear" 
-            cancelAnimationFrame requestID
-            ctx.clearRect 0, 0, w, h
-        when "create"
-            create_canvas()
-        else console.log "Invalid command"
+    
+document.onkeydown = (e) ->
+    if !e then e = window.event
+    cmd = document.getElementById("cmd")
+    if e.target != cmd
+        keyCode = if e.keyCode then e.keyCode else e.which
+        switch keyCode
+            when 27
+                cmd.focus()
+
+cmd = document.getElementById("cmd")
+cmd.onkeypress = (e) ->
+    if !e then e = window.event
+    if e.keyCode == 13 || e.which == 13
+        command   = cmd.value.toLowerCase()
+        exists    = document.getElementsByTagName("canvas")[0] != undefined
+        cmd.value = ""
+        switch command
+            when "start"
+                if exists
+                    requestID = requestAnimationFrame draw
+            when "stop"
+                if exists
+                    cancelAnimationFrame requestID
+            when "clear"
+                if exists
+                    cancelAnimationFrame requestID
+                    ctx.clearRect 0, 0, w, h
+            when "create"
+                if !exists
+                    create_canvas()
+            when "remove"
+                if exists
+                    canvas.parentNode.removeChild canvas
+            else console.log "Invalid command"
