@@ -1,4 +1,4 @@
-app = angular.module "nglearnApp", ["ngCookies","ngResource","ngSanitize","ngRoute"]
+app = angular.module "canvasApp", ["ngCookies","ngResource","ngSanitize","ngRoute"]
 
 app.controller "TestCtrl",
 class TestCtrl
@@ -50,7 +50,7 @@ class ProjectCtrl
 
 app.directive "fromjs", ->
     restrict: "E"
-    template: "<span>App.js made me!</span>"
+    template: "<div class='ng-output'>App.js made me!</div>"
 
 app.directive "fromjs", ->
     restrict: "A"
@@ -65,9 +65,10 @@ app.directive "stacked", ->
 app.directive "fromjs", ->
     restrict: "C"
     link: ->
-        span = document.createElement "span"
+        div = document.createElement "div"
+        div.classList.add "ng-output"
         text = document.createTextNode "App.js made me, too!"
-        document.getElementById("fromjs").appendChild(span).appendChild(text)
+        document.getElementById("fromjs").appendChild(div).appendChild(text)
 
 app.directive "hoveron", ->
     (scope, element, attrs) ->
@@ -137,7 +138,7 @@ app.directive "servant", ->
         done: "&"
     template: "<input type='text' ng-model='task' placeholder='Task' class='form-control'>" +
               "<h3>{{task}}</h3>" +
-              "<span ng-click='done({task:task})'>Click me!</span>"
+              "<div class='ng-output' ng-click='done({task:task})'>Click me!</div>"
 
 app.filter "capitalise", ->
     (text) ->
@@ -151,7 +152,7 @@ class FlavorCtrl
 app.directive "icecream", ->
     scope: 
         flavor: "@"
-    template: "Today's ice cream flavor is: <span>{{flavor | capitalise}}</span>"
+    template: "Today's ice cream flavor is: <div class='ng-output'>{{flavor | capitalise}}</div>"
 
 app.controller "ChoiceCtrl",
 class ChoiceCtrl
@@ -161,7 +162,7 @@ class ChoiceCtrl
 app.directive "drink", ->
     scope: 
         choice: "="
-    template: "Today's drink choice is: <span>{{choice | capitalise}}</span>"
+    template: "Today's drink choice is: <div class='ng-output'>{{choice | capitalise}}</div>"
 
 app.controller "PhoneCtrl",
 class PhoneCtrl
@@ -173,7 +174,7 @@ app.directive "phone", ->
     scope:
         dial: "&"
     template: "<input type='input' ng-model='value' placeholder='Message' class='form-control'>" +
-              "<span class='hover' ng-click='dial({message:value})'>Phone home</span>"
+              "<div class='ng-output hover' ng-click='dial({message:value})'>Phone home</div>"
 
 app.controller "MessageCtrl",
 class MessageCtrl
@@ -190,12 +191,12 @@ app.directive "client", ->
     template: "<div>Server: {{server}}</div>" +
               "<input type='text' ng-model='name' placeholder='Username' class='form-control'>" +
               "<input type='text' ng-model='value' placeholder='Message' class='form-control'>" +
-              "<span class='hover' ng-click='ping({server: server, user: name, message: value})'>Send</span>"
+              "<div class='ng-output hover' ng-click='ping({server: server, user: name, message: value})'>Send</div>"
 
 app.directive "transclusion", ->
     restrict: "E"
     transclude: true
-    template: "<span>Hello from &lt;transclusion&gt;</span><div ng-transclude></div>"
+    template: "<div class='ng-output'>Hello from &lt;transclusion&gt;</div><div ng-transclude></div>"
 
 someApp = {}
 someApp.controllers = {}
@@ -215,7 +216,7 @@ app.directive "showhide", ->
     scope:
         title: "@"
     template: "<h2 ng-click='toggleContent()' class='hover'>{{title}}</h2>" +
-              "<span ng-show='isContentVisible' ng-transclude></span>"
+              "<div class='ng-output' ng-show='isContentVisible' ng-transclude></div>"
     link: (scope) ->
         scope.isContentVisible = false
         scope.toggleContent = ->
@@ -267,7 +268,7 @@ app.config ($routeProvider) ->
             loadPromises: routeCtrl.loadPromises
 
     .when "/say/:message",
-        template: "<span>URL says: {{model.message}}</span>"
+        template: "<div class='ng-output'>URL says: {{model.message}}</div>"
         controller: "Route2Ctrl"
     .when "/tell/:message",
         redirectTo: (routeParams, path, search) ->
@@ -325,7 +326,7 @@ class FailSafe
 app.directive "error", ($rootScope) ->
     restrict: "E"
     replace: true
-    template: "<span ng-show='isError'>Error: Promises were not resolved!</span>"
+    template: "<div class='ng-output' ng-show='isError'>Error: Promises were not resolved!</div>"
     link: (scope) ->
         $rootScope.$on "$routeChangeError", (event, current, previous, rejection) ->
             scope.isError = true

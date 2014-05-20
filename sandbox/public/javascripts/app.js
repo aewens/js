@@ -2,7 +2,7 @@
 (function() {
   var BlueCtrl, ChoiceCtrl, FailSafe, FlavorCtrl, MessageCtrl, PhoneCtrl, ProjectCtrl, ProvideCtrl, RedCtrl, Route1Ctrl, Route2Ctrl, SomeCtrl, TaskCtrl, TestCtrl, ThisCtrl, TwitterCtrl, app, routeCtrl, someApp;
 
-  app = angular.module("nglearnApp", ["ngCookies", "ngResource", "ngSanitize", "ngRoute"]);
+  app = angular.module("canvasApp", ["ngCookies", "ngResource", "ngSanitize", "ngRoute"]);
 
   app.controller("TestCtrl", TestCtrl = (function() {
     function TestCtrl($scope) {
@@ -100,7 +100,7 @@
   app.directive("fromjs", function() {
     return {
       restrict: "E",
-      template: "<span>App.js made me!</span>"
+      template: "<div class='ng-output'>App.js made me!</div>"
     };
   });
 
@@ -126,10 +126,11 @@
     return {
       restrict: "C",
       link: function() {
-        var span, text;
-        span = document.createElement("span");
+        var div, text;
+        div = document.createElement("div");
+        div.classList.add("ng-output");
         text = document.createTextNode("App.js made me, too!");
-        return document.getElementById("fromjs").appendChild(span).appendChild(text);
+        return document.getElementById("fromjs").appendChild(div).appendChild(text);
       }
     };
   });
@@ -249,7 +250,7 @@
       scope: {
         done: "&"
       },
-      template: "<input type='text' ng-model='task' placeholder='Task' class='form-control'>" + "<h3>{{task}}</h3>" + "<span ng-click='done({task:task})'>Click me!</span>"
+      template: "<input type='text' ng-model='task' placeholder='Task' class='form-control'>" + "<h3>{{task}}</h3>" + "<div class='ng-output' ng-click='done({task:task})'>Click me!</div>"
     };
   });
 
@@ -273,7 +274,7 @@
       scope: {
         flavor: "@"
       },
-      template: "Today's ice cream flavor is: <span>{{flavor | capitalise}}</span>"
+      template: "Today's ice cream flavor is: <div class='ng-output'>{{flavor | capitalise}}</div>"
     };
   });
 
@@ -291,7 +292,7 @@
       scope: {
         choice: "="
       },
-      template: "Today's drink choice is: <span>{{choice | capitalise}}</span>"
+      template: "Today's drink choice is: <div class='ng-output'>{{choice | capitalise}}</div>"
     };
   });
 
@@ -311,7 +312,7 @@
       scope: {
         dial: "&"
       },
-      template: "<input type='input' ng-model='value' placeholder='Message' class='form-control'>" + "<span class='hover' ng-click='dial({message:value})'>Phone home</span>"
+      template: "<input type='input' ng-model='value' placeholder='Message' class='form-control'>" + "<div class='ng-output hover' ng-click='dial({message:value})'>Phone home</div>"
     };
   });
 
@@ -334,7 +335,7 @@
         user: "=",
         ping: "&"
       },
-      template: "<div>Server: {{server}}</div>" + "<input type='text' ng-model='name' placeholder='Username' class='form-control'>" + "<input type='text' ng-model='value' placeholder='Message' class='form-control'>" + "<span class='hover' ng-click='ping({server: server, user: name, message: value})'>Send</span>"
+      template: "<div>Server: {{server}}</div>" + "<input type='text' ng-model='name' placeholder='Username' class='form-control'>" + "<input type='text' ng-model='value' placeholder='Message' class='form-control'>" + "<div class='ng-output hover' ng-click='ping({server: server, user: name, message: value})'>Send</div>"
     };
   });
 
@@ -342,7 +343,7 @@
     return {
       restrict: "E",
       transclude: true,
-      template: "<span>Hello from &lt;transclusion&gt;</span><div ng-transclude></div>"
+      template: "<div class='ng-output'>Hello from &lt;transclusion&gt;</div><div ng-transclude></div>"
     };
   });
 
@@ -371,7 +372,7 @@
       scope: {
         title: "@"
       },
-      template: "<h2 ng-click='toggleContent()' class='hover'>{{title}}</h2>" + "<span ng-show='isContentVisible' ng-transclude></span>",
+      template: "<h2 ng-click='toggleContent()' class='hover'>{{title}}</h2>" + "<div class='ng-output' ng-show='isContentVisible' ng-transclude></div>",
       link: function(scope) {
         scope.isContentVisible = false;
         return scope.toggleContent = function() {
@@ -440,7 +441,7 @@
         loadPromises: routeCtrl.loadPromises
       }
     }).when("/say/:message", {
-      template: "<span>URL says: {{model.message}}</span>",
+      template: "<div class='ng-output'>URL says: {{model.message}}</div>",
       controller: "Route2Ctrl"
     }).when("/tell/:message", {
       redirectTo: function(routeParams, path, search) {
@@ -516,7 +517,7 @@
     return {
       restrict: "E",
       replace: true,
-      template: "<span ng-show='isError'>Error: Promises were not resolved!</span>",
+      template: "<div class='ng-output' ng-show='isError'>Error: Promises were not resolved!</div>",
       link: function(scope) {
         return $rootScope.$on("$routeChangeError", function(event, current, previous, rejection) {
           return scope.isError = true;

@@ -99,7 +99,6 @@ body {
   color: #000;
   z-index: 1;
   width: 100%;
-  height: 100%;
   position: relative;
 }
 html.color,
@@ -132,7 +131,7 @@ header.color p {
   color: #d9d9d9;
 }
 .container {
-  margin: 50px auto;
+  margin: 50px auto 0;
   overflow: hidden;
 }
 .main-content {
@@ -141,43 +140,6 @@ header.color p {
 }
 .main-content p {
   margin-bottom: 20px;
-}
-.ng-block,
-article {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  -webkit-border-radius: 2px 2px 0 0;
-  border-radius: 2px 2px 0 0;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
-  box-shadow: inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
-}
-.ng-block *:not(:first-child),
-article *:not(:first-child) {
-  margin-top: 10px;
-}
-.ng-block .ng-output,
-article .ng-output {
-  display: inline-block;
-  background: #708090;
-  color: #b3b3b3;
-  padding: 4px 6px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-}
-.ng-block h2,
-article h2 {
-  font-size: 18px;
-}
-.ng-block h3,
-article h3 {
-  padding-left: 14px;
-}
-.ng-block.color,
-article.color {
-  background: #fbfaf4;
 }
 .sidebar {
   float: left;
@@ -208,36 +170,6 @@ article.color {
 .sidebar .widget.color {
   background: #fbfaf4;
 }
-canvas {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  -webkit-border-radius: 2px 2px 0 0;
-  border-radius: 2px 2px 0 0;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
-  box-shadow: inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
-}
-p {
-  line-height: 1.8;
-}
-a {
-  color: #000;
-  text-decoration: underline;
-  font-weight: bold;
-}
-a:hover,
-a:focus {
-  color: #708090;
-  text-decoration: none;
-}
-a:visited {
-  color: #708090;
-}
-a:active {
-  color: #384048;
-}
 footer {
   margin: 50px auto;
   border-top: 1px dotted #ccc;
@@ -256,6 +188,43 @@ footer span.copyright {
 footer span.engine {
   position: absolute;
   right: 0;
+}
+.ng-block,
+article {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
+}
+.ng-block *:not(:first-child),
+article *:not(:first-child) {
+  margin-top: 10px;
+}
+.ng-block .ng-output,
+article .ng-output {
+  display: inline-block;
+  background: #708090;
+  color: #fff;
+  padding: 4px 6px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+.ng-block h2,
+article h2 {
+  font-size: 18px;
+}
+.ng-block h3,
+article h3 {
+  padding-left: 14px;
+}
+.ng-block.color,
+article.color {
+  background: #fbfaf4;
 }
 .backdrop {
   width: 100%;
@@ -361,6 +330,36 @@ footer span.engine {
 }
 .theme {
   margin-left: 5px;
+}
+canvas {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
+}
+p {
+  line-height: 1.8;
+}
+a {
+  color: #000;
+  text-decoration: underline;
+  font-weight: bold;
+}
+a:hover,
+a:focus {
+  color: #708090;
+  text-decoration: none;
+}
+a:visited {
+  color: #708090;
+}
+a:active {
+  color: #384048;
 }
 .off {
   display: none;
