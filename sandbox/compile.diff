@@ -16,7 +16,7 @@ class Canvas
         this.w      = null
         this.h      = null
         this.screen = null
-        
+    
     create_canvas: ->
         ct = "Your browser does not support &lt;canvas&gt;, " +
              "try one of <a href='#'>these</a> instead."
@@ -118,3 +118,4 @@ cmd.onkeypress = (e) ->
                 if exists
                     c.canvas.parentNode.removeChild canvas
             else console.log "Invalid command"
+

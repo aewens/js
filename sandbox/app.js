@@ -1,8 +1,17 @@
 //Module dependencies
 var express = require("express"),
-	stylus	= require("stylus"),
-	nib		= require("nib"),
-	route 	= require("./routes")
+	stylus  = require("stylus"),
+	nib     = require("nib"),
+	route   = require("./routes"),
+	exec    = require('child_process').exec
+	
+var compiler = exec("ruby compile.rb", function(error,stdout,stderr) {
+	// console.log('stdout: ' + stdout);
+    // console.log('stderr: ' + stderr);
+    if (error !== null) {
+      console.log('exec error: ' + error);
+    }
+})
 
 //Express yourself!
 var app = express()
