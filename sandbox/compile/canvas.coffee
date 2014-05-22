@@ -1,14 +1,3 @@
-app = angular.module "canvasApp", ["ngCookies","ngResource","ngSanitize","ngRoute"]
-
-class Screen
-    constructor: (width, height) ->
-        this.width  = width
-        this.height = height
-    
-    test: ->
-        console.log this.width
-        console.log this.height
-
 class Canvas
     constructor: ->
         this.canvas = null
@@ -16,7 +5,7 @@ class Canvas
         this.w      = null
         this.h      = null
         this.screen = null
-        
+    
     create_canvas: ->
         ct = "Your browser does not support &lt;canvas&gt;, " +
              "try one of <a href='#'>these</a> instead."

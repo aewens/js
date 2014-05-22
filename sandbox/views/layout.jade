@@ -19,7 +19,7 @@ link(rel="stylesheet", href="/stylesheets/style.css")
                 h1 Settings
                 p
                     | Theme: 
-                    span.theme.default
+                    button.theme.default
                     //- | Sed auctor neque eu tellus rhoncus ut
                     //- | eleifend nibh porttitor. Ut in nulla enim.
                     //- br
@@ -34,6 +34,7 @@ link(rel="stylesheet", href="/stylesheets/style.css")
 
 // JavaScript Goes Here
 script(src="/components/jquery/dist/jquery.js")
+script(src="/components/underscore/underscore.js")
 script(src="/components/angular/angular.js")
 script(src="/components/bootstrap/dist/js/bootstrap.js")
 script(src="/components/angular-resource/angular-resource.js")
@@ -41,7 +42,6 @@ script(src="/components/angular-cookies/angular-cookies.js")
 script(src="/components/angular-sanitize/angular-sanitize.js")
 script(src="/components/angular-route/angular-route.js")
 
-//- script(src="/javascripts/app.js")
 script(src='/javascripts/effects.js')
 script.
     var size  = (100 - (((document.body.clientWidth) * 0.01) * 2)) + "%";
@@ -49,4 +49,5 @@ script.
     for (var i = 0, j = sizes.length; i < j; i += 1) {
         sizes[i].style.width = size;
     }
+//- script(src="/javascripts/app.js")
 script(src='/javascripts/canvas.js')
