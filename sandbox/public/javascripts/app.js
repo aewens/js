@@ -8,11 +8,29 @@
     function Screen(width, height) {
       this.width = width;
       this.height = height;
+      this.pixels = new Array(width * height);
     }
 
     Screen.prototype.test = function() {
       console.log(this.width);
-      return console.log(this.height);
+      console.log(this.height);
+      return console.log(this.pixels.length);
+    };
+
+    Screen.prototype.render = function() {
+      var x, y, _i, _ref, _results;
+      _results = [];
+      for (y = _i = 0, _ref = this.height; _i <= _ref; y = _i += 1) {
+        _results.push((function() {
+          var _j, _ref1, _results1;
+          _results1 = [];
+          for (x = _j = 0, _ref1 = this.width; _j <= _ref1; x = _j += 1) {
+            _results1.push(this.pixels[x + y * this.width] = "#789");
+          }
+          return _results1;
+        }).call(this));
+      }
+      return _results;
     };
 
     return Screen;
@@ -73,10 +91,11 @@
   requestID = null;
 
   draw = function() {
-    this.ctx.clearRect(0, 0, w, h);
-    this.ctx.fillStyle = "#000";
-    this.ctx.fillRect(0, 0, w, h);
-    return requestID = requestAnimFrame(draw);
+    c.ctx.clearRect(0, 0, c.w, c.h);
+    c.ctx.fillStyle = "#000";
+    c.ctx.fillRect(0, 0, c.w, c.h);
+    c.screen.render();
+    return requestID = setInterval(draw, 1000 / 60);
   };
 
   cmd = document.getElementById("cmd");
@@ -106,29 +125,34 @@
       switch (command) {
         case "start":
           if (exists) {
-            return requestID = requestAnimationFrame(draw);
+            requestID = requestAnimationFrame(draw);
+            return console.log("Start");
           }
           break;
         case "stop":
           if (exists) {
-            return cancelAnimationFrame(requestID);
+            cancelAnimationFrame(requestID);
+            return console.log("Stop");
           }
           break;
         case "clear":
           if (exists) {
             cancelAnimationFrame(requestID);
-            return c.ctx.clearRect(0, 0, w, h);
+            c.ctx.clearRect(0, 0, c.w, c.h);
+            return console.log("Clear");
           }
           break;
         case "create":
           if (!exists) {
             c.create_canvas();
-            return c.spawn();
+            c.spawn();
+            return console.log("Create");
           }
           break;
         case "remove":
           if (exists) {
-            return c.canvas.parentNode.removeChild(canvas);
+            c.canvas.parentNode.removeChild(c.canvas);
+            return console.log("Remove");
           }
           break;
         default:

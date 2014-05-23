@@ -4,10 +4,18 @@ class Screen
     constructor: (width, height) ->
         this.width  = width
         this.height = height
+        this.pixels = new Array width * height
     
     test: ->
         console.log this.width
         console.log this.height
+        console.log this.pixels.length
+        
+    render: ->
+        for y in [0..this.height] by 1
+            for x in [0..this.width] by 1
+                this.pixels[x + y * this.width] = "#789"
+        # console.log this.pixels
 
 class Canvas
     constructor: ->
@@ -47,6 +55,7 @@ class Canvas
         height = Math.floor this.canvas.height
         width  =  Math.floor this.canvas.width
         this.screen = new Screen width, height
+        # this.screen.test()
             
             
         
@@ -64,7 +73,7 @@ cancelAnimationFrame =
     window.oCancelAnimationFrame      || 
     window.msCancelAnimationFrame
         
-c = new Canvas
+c      = new Canvas
         
 # i = parseInt("100",16)
 requestID = null
@@ -72,18 +81,19 @@ draw = ->
     # Updates
     
     # Clear
-    this.ctx.clearRect 0, 0, w, h
-    this.ctx.fillStyle = "#000"
-    this.ctx.fillRect 0, 0, w, h
+    c.ctx.clearRect 0, 0, c.w, c.h
+    c.ctx.fillStyle = "#000"
+    c.ctx.fillRect 0, 0, c.w, c.h
     
     #Render
-    # ctx.fillStyle = "#"+i.toString 16
-    # ctx.fillRect 0, 0, w, h
-    #                 
-    # i = if i == parseInt("fff",16) then parseInt("100",16) else i + 1
+    c.screen.render()
+    
+    # for pix in c.screen.pixels
+    #     # console.log pix
+    #     # c.pixel pix[], [x,y]
     
     # Recurse
-    requestID = requestAnimFrame draw
+    requestID = setInterval draw, 1000/60
     
 cmd = document.getElementById("cmd")
 document.onkeydown = (e) ->
@@ -103,19 +113,26 @@ cmd.onkeypress = (e) ->
             when "start"
                 if exists
                     requestID = requestAnimationFrame draw
+                    console.log "Start"
             when "stop"
                 if exists
                     cancelAnimationFrame requestID
+                    # clearInterval requestID
+                    console.log "Stop"
             when "clear"
                 if exists
                     cancelAnimationFrame requestID
-                    c.ctx.clearRect 0, 0, w, h
+                    # clearInterval requestID
+                    c.ctx.clearRect 0, 0, c.w, c.h
+                    console.log "Clear"
             when "create"
                 if !exists
                     c.create_canvas()
                     c.spawn()
+                    console.log "Create"
             when "remove"
                 if exists
-                    c.canvas.parentNode.removeChild canvas
+                    c.canvas.parentNode.removeChild c.canvas
+                    console.log "Remove"
             else console.log "Invalid command"
 

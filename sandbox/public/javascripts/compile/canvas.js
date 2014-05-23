@@ -56,10 +56,11 @@
   requestID = null;
 
   draw = function() {
-    this.ctx.clearRect(0, 0, w, h);
-    this.ctx.fillStyle = "#000";
-    this.ctx.fillRect(0, 0, w, h);
-    return requestID = requestAnimFrame(draw);
+    c.ctx.clearRect(0, 0, c.w, c.h);
+    c.ctx.fillStyle = "#000";
+    c.ctx.fillRect(0, 0, c.w, c.h);
+    c.screen.render();
+    return requestID = setInterval(draw, 1000 / 60);
   };
 
   cmd = document.getElementById("cmd");
@@ -89,29 +90,34 @@
       switch (command) {
         case "start":
           if (exists) {
-            return requestID = requestAnimationFrame(draw);
+            requestID = requestAnimationFrame(draw);
+            return console.log("Start");
           }
           break;
         case "stop":
           if (exists) {
-            return cancelAnimationFrame(requestID);
+            cancelAnimationFrame(requestID);
+            return console.log("Stop");
           }
           break;
         case "clear":
           if (exists) {
             cancelAnimationFrame(requestID);
-            return c.ctx.clearRect(0, 0, w, h);
+            c.ctx.clearRect(0, 0, c.w, c.h);
+            return console.log("Clear");
           }
           break;
         case "create":
           if (!exists) {
             c.create_canvas();
-            return c.spawn();
+            c.spawn();
+            return console.log("Create");
           }
           break;
         case "remove":
           if (exists) {
-            return c.canvas.parentNode.removeChild(canvas);
+            c.canvas.parentNode.removeChild(c.canvas);
+            return console.log("Remove");
           }
           break;
         default:
