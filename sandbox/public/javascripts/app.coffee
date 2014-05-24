@@ -93,7 +93,7 @@ draw = ->
     #     # c.pixel pix[], [x,y]
     
     # Recurse
-    requestID = setInterval draw, 1000/60
+    requestID = requestAnimationFrame draw
     
 cmd = document.getElementById("cmd")
 document.onkeydown = (e) ->
@@ -117,12 +117,10 @@ cmd.onkeypress = (e) ->
             when "stop"
                 if exists
                     cancelAnimationFrame requestID
-                    # clearInterval requestID
                     console.log "Stop"
             when "clear"
                 if exists
                     cancelAnimationFrame requestID
-                    # clearInterval requestID
                     c.ctx.clearRect 0, 0, c.w, c.h
                     console.log "Clear"
             when "create"

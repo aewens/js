@@ -60,7 +60,7 @@
     c.ctx.fillStyle = "#000";
     c.ctx.fillRect(0, 0, c.w, c.h);
     c.screen.render();
-    return requestID = setInterval(draw, 1000 / 60);
+    return requestID = requestAnimationFrame(draw);
   };
 
   cmd = document.getElementById("cmd");
