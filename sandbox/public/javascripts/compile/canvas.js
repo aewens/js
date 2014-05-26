@@ -32,7 +32,7 @@
     };
 
     Canvas.prototype.pixel = function(color, coords) {
-      return block(color, coords, 1);
+      return c.block(color, coords, 1);
     };
 
     Canvas.prototype.spawn = function() {
@@ -56,10 +56,18 @@
   requestID = null;
 
   draw = function() {
+    var i, pix, x, y, _i, _len, _ref;
     c.ctx.clearRect(0, 0, c.w, c.h);
-    c.ctx.fillStyle = "#000";
-    c.ctx.fillRect(0, 0, c.w, c.h);
     c.screen.render();
+    i = 0;
+    _ref = c.screen.pixels;
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      pix = _ref[_i];
+      x = i % c.w;
+      y = (i / c.h) >> 0;
+      i = i + 1;
+      c.block(pix, [0, 0], c.h);
+    }
     return requestID = requestAnimationFrame(draw);
   };
 

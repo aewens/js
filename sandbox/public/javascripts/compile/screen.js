@@ -16,13 +16,13 @@
     };
 
     Screen.prototype.render = function() {
-      var x, y, _i, _ref, _results;
+      var x, y, _i, _results;
       _results = [];
-      for (y = _i = 0, _ref = this.height; _i <= _ref; y = _i += 1) {
+      for (y = _i = 0; _i <= 63; y = _i += 1) {
         _results.push((function() {
-          var _j, _ref1, _results1;
+          var _j, _results1;
           _results1 = [];
-          for (x = _j = 0, _ref1 = this.width; _j <= _ref1; x = _j += 1) {
+          for (x = _j = 0; _j <= 63; x = _j += 1) {
             _results1.push(this.pixels[x + y * this.width] = "#789");
           }
           return _results1;

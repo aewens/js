@@ -10,7 +10,7 @@ class Screen
         console.log this.pixels.length
         
     render: ->
-        for y in [0..this.height] by 1
-            for x in [0..this.width] by 1
+        for y in [0..63] by 1 #[0..this.height-1] by 1
+            for x in [0..63] by 1 #[0..this.width-1] by 1
                 this.pixels[x + y * this.width] = "#789"
         # console.log this.pixels

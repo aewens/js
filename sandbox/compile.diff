@@ -12,8 +12,8 @@ class Screen
         console.log this.pixels.length
         
     render: ->
-        for y in [0..this.height] by 1
-            for x in [0..this.width] by 1
+        for y in [0..63] by 1 #[0..this.height-1] by 1
+            for x in [0..63] by 1 #[0..this.width-1] by 1
                 this.pixels[x + y * this.width] = "#789"
         # console.log this.pixels
 
@@ -48,7 +48,7 @@ class Canvas
         this.canvas.getContext("2d").fillRect coords[0] * s, coords[1] * s, s, s
 
     pixel: (color, coords) ->
-        block color, coords, 1
+        c.block color, coords, 1
 
     spawn: ->
         console.log "Spawned!"
@@ -82,15 +82,18 @@ draw = ->
     
     # Clear
     c.ctx.clearRect 0, 0, c.w, c.h
-    c.ctx.fillStyle = "#000"
-    c.ctx.fillRect 0, 0, c.w, c.h
+    # c.ctx.fillStyle = "#000"
+    # c.ctx.fillRect 0, 0, c.w, c.h
     
     #Render
     c.screen.render()
     
-    # for pix in c.screen.pixels
-    #     # console.log pix
-    #     # c.pixel pix[], [x,y]
+    i = 0
+    for pix in c.screen.pixels
+        x = i % c.w
+        y = (i / c.h) >> 0
+        i = i + 1
+        c.block pix, [0,0], c.h
     
     # Recurse
     requestID = requestAnimationFrame draw

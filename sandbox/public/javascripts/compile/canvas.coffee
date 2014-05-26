@@ -29,7 +29,7 @@ class Canvas
         this.canvas.getContext("2d").fillRect coords[0] * s, coords[1] * s, s, s
 
     pixel: (color, coords) ->
-        block color, coords, 1
+        c.block color, coords, 1
 
     spawn: ->
         console.log "Spawned!"
@@ -63,15 +63,18 @@ draw = ->
     
     # Clear
     c.ctx.clearRect 0, 0, c.w, c.h
-    c.ctx.fillStyle = "#000"
-    c.ctx.fillRect 0, 0, c.w, c.h
+    # c.ctx.fillStyle = "#000"
+    # c.ctx.fillRect 0, 0, c.w, c.h
     
     #Render
-    c.screen.render()
-    
+    # c.screen.render()
+    # 
+    # i = 0
     # for pix in c.screen.pixels
-    #     # console.log pix
-    #     # c.pixel pix[], [x,y]
+    #     x = i % c.w
+    #     y = (i / c.h) >> 0
+    #     i = i + 1
+    #     c.block pix, [0,0], c.h
     
     # Recurse
     requestID = requestAnimationFrame draw
