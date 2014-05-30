@@ -2,8 +2,158 @@
 @import url("http://fonts.googleapis.com/css?family=Quicksand")
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:700,400")
 
-global-reset()
+// global-reset()
 
-primary = #faf9f0
-sgrey   = #708090
+border-radius(n)
+    -webkit-border-radius n
+    -moz-border-radius n
+    border-radius n
+
+link = #0c5a9f
+
+html, body
+    background #eee
+    color #111
+    font-size 90%
+    font-family "Open Sans", sans-serif
+    line-height 1.5
+    text-align left
+    
+a
+    text-decoration none
+    padding 2px 4px
+    &:link, &:visited
+        color link
+    &:hover, &:active
+        color #fff
+        background link
+        border-radius(5px)
+    
+.app
+    margin 0 auto
+    width 70%
+    clear both
+    
+.xheader
+    img
+        width 30%
+        height auto
+        margin 2% 0
+    nav
+        background #666
+        height 40px
+        border-radius(5px)
+        ul
+            list-style none
+            margin 0 auto
+            li
+                float left
+                display inline
+                &.active
+                    a:link, a:visited
+                        background link
+                a
+                    border-radius(5px)
+                    &:link, &:visited
+                        color #fff
+                        display inline-block
+                        padding 12px 25px
+                        height 16px
+                    &:hover, &:active
+                        background link
+                        text-shadow none
+                        
+.xcontent
+    line-height 25px
+    border-radius(5px)
+    .content
+        width 70%
+        float left
+        article
+            background #fff
+            padding 3% 5%
+            margin-top 2%
+            border-radius(5px)
+            .info
+                color #999
+                font-style italic
+                font-size 90%
+            
+aside
+    width 22%
+    float left
+    background #fff
+    padding 2% 3%
+    margin 1.4% 0 0 2%
+    border-radius(5px)
+    
+.xfooter
+    width 100%
+    height 40px
+    float left
+    background #666
+    margin 2% 0
+    border-radius(5px)
+    p
+        width 90%
+        height 16px
+        margin 12px auto
+        color #fff
+        
+@media only screen and (min-width: 640px) and (max-width: 960px)
+    .app
+        width 95%
+        
+    .xheader
+        img
+            width 50%
+        
+@media only screen and (min-width: 144px) and (max-width: 639px)
+    .app
+        width 95%
+        
+    .xheader
+        img
+            width 100%
+        nav
+            height 160px
+            ul
+                padding 0
+                li
+                    width 100%
+                    text-align center
+                    a
+                        &:link, &:visited
+                            padding 12px 25px
+                            height 16px
+                            display block
+                            
+    .xcontent
+        .content
+            width 100%
+            float left
+            article
+                margin-top 4%
+                .info
+                    display none
+                
+    aside
+        width 94%
+        float left
+        padding 2% 3%
+        margin 4% auto 0
+        
+    .xfooter
+        float left
+        margin 4% 0
+        span
+            display none
+
+
+
+
+
+
+
+
 

@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-ruby compile.rb
 coffee -wc public/javascripts/ &
 supervisor -w public/javascripts/ -x node app.js
