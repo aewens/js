@@ -39,9 +39,28 @@
 
   app.get("/partials/:name", route.partials);
 
-  app.get("/new", route.index);
+  app.get("/posts", route.posts);
 
-  app.post("/new", route.new_post);
+  app.get("/posts/new", route.posts);
+
+  app.post("/posts/new", route.new_post);
+
+  app.use(function(req, res, next) {
+    res.status(404);
+    if (req.accepts("html")) {
+      res.render("partials/404", {
+        url: req.url
+      });
+      return;
+    }
+    if (req.accepts("json")) {
+      res.send({
+        error: "Not found"
+      });
+      return;
+    }
+    return res.type("txt").send("Not found");
+  });
 
   app.listen(8123);
 

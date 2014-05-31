@@ -23,3 +23,24 @@ $ ->
         slug = $(this).attr("slug")
         $("footer[slug="+slug+"]").toggle()
         $("section[slug="+slug+"]").toggle()
+        
+        if $("article[slug="+slug+"]").hasClass "selected"
+            $(".content article").each ->
+                if !$(this).hasClass "post"
+                    $(this).show()
+        else
+            
+            $(".content article").each ->
+                if !$(this).is "[slug="+slug+"]"
+                    if !$(this).hasClass "post"
+                        $(this).hide()
+        $("article[slug="+slug+"]").toggleClass "selected"
+
+
+
+
+
+
+
+
+

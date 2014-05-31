@@ -1,37 +1,7 @@
 extends layout
 
 block app
-    .xcontent
-        .content
-            article.post
-                header
-                    h3 Post
-                section
-                    form(method="post", action="/new")
-                        p
-                            input.form-control(type="text", name="title", placeholder="Title...")
-                        p
-                            input.form-control(type="text", name="author", placeholder="Author...")
-                        p
-                            input.form-control(type="text", name="slug", placeholder="Slug...")
-                        p
-                            textarea.form-control(name="body", placeholder="Body...")
-                        p
-                            input.btn.btn-default(type="submit", text="Submit")
-                        
-            - each post in posts
-                article
-                    header
-                        h3
-                            a(href="#", title="#{post.title}", slug="#{post.slug}") #{post.title}
-                    footer(slug="#{post.slug}")
-                        p.info 
-                            | This post was written by 
-                            b #{post.author} 
-                            | on 
-                            u #{post.created.toDateString()}
-                    section(slug="#{post.slug}")
-                        p #{post.body}
+    div(ng-view)
 
 
 

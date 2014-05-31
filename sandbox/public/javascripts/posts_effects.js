@@ -30,7 +30,23 @@
       e.preventDefault();
       slug = $(this).attr("slug");
       $("footer[slug=" + slug + "]").toggle();
-      return $("section[slug=" + slug + "]").toggle();
+      $("section[slug=" + slug + "]").toggle();
+      if ($("article[slug=" + slug + "]").hasClass("selected")) {
+        $(".content article").each(function() {
+          if (!$(this).hasClass("post")) {
+            return $(this).show();
+          }
+        });
+      } else {
+        $(".content article").each(function() {
+          if (!$(this).is("[slug=" + slug + "]")) {
+            if (!$(this).hasClass("post")) {
+              return $(this).hide();
+            }
+          }
+        });
+      }
+      return $("article[slug=" + slug + "]").toggleClass("selected");
     });
   });
 

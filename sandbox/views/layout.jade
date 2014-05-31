@@ -3,50 +3,21 @@ meta(charset="utf-8")
 title= title
 link(rel="stylesheet", href="/components/bootstrap/dist/css/bootstrap.css")
 link(rel="stylesheet", href="/stylesheets/style.css")
-link(rel="stylesheet", href="/stylesheets/color.css")
 meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
-body.body.default
-    header.xheader
-        //- img(src="http://placehold.it/640x360.gif&text=sandbox")
-        img(src="/images/logo.gif")
-        nav
-            ul.items
-                li.active
-                    a(href="/") Home
-                li
-                    a(href="#") About
-                li
-                    a(href="#") Projects
-                li
-                    a(href="#") Contact
-                    
-    .app
+body.body
+    .app(ng-app="sandbox")
         block app
-        
-    aside
-        article
-            h3 Settings
-            p 
-                span.tag Theme: 
-                span#theme.button Monochrome
-            p
-                span.tag Post: 
-                span#post.button Hide
-                
-    footer.xfooter
-        p &copy; Copyright 2014 Kylobite
-            span . All rights reserved.
 
 // JavaScript Goes Here
-script(src="/components/jquery/dist/jquery.js")
+//- script(src="/components/jquery/dist/jquery.js")
 script(src="/components/underscore/underscore.js")
-script(src="/components/angular/angular.js")
-script(src="/components/bootstrap/dist/js/bootstrap.js")
-script(src="/components/angular-resource/angular-resource.js")
-script(src="/components/angular-cookies/angular-cookies.js")
-script(src="/components/angular-sanitize/angular-sanitize.js")
-script(src="/components/angular-route/angular-route.js")
+script(src="/components/angular/angular.min.js")
+script(src="/components/bootstrap/dist/js/bootstrap.min.js")
+//- script(src="/components/angular-resource/angular-resource.js")
+//- script(src="/components/angular-cookies/angular-cookies.js")
+//- script(src="/components/angular-sanitize/angular-sanitize.js")
+script(src="/components/angular-route/angular-route.min.js")
 
-script(src='/javascripts/effects.js')
-//- script(src="/javascripts/app.js")
+//- script(src='/javascripts/effects.js')
+script(src="/javascripts/app.js")

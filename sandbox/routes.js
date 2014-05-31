@@ -7,12 +7,19 @@
   Post = require("./models/post");
 
   exports.index = function(req, res) {
+    return res.render("index", {
+      title: title
+    });
+  };
+
+  exports.posts = function(req, res) {
     return Post.find({}).sort("-date").exec(function(err, posts) {
       if (err) {
         console.log(err);
       }
-      return res.render("index", {
+      return res.render("feed", {
         title: title,
+        layout: "posts",
         posts: posts.reverse()
       });
     });
@@ -30,7 +37,7 @@
       if (err) {
         return console.log(err);
       } else {
-        return res.redirect("/");
+        return res.redirect("/posts");
       }
     });
   };

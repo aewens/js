@@ -11,7 +11,7 @@ mongoose.connect "mongodb://localhost/postsdb"
 app = express()
 
 #Setup: Begin
-compile= (str, path) ->
+compile = (str, path) ->
     stylus(str).set("filename", path).use(nib())
         
 app.set "views", __dirname + "/views"
@@ -28,8 +28,26 @@ app.use express.bodyParser()
 #Routes
 app.get  "/", route.index
 app.get  "/partials/:name", route.partials
-app.get  "/new", route.index
-app.post "/new", route.new_post
+app.get  "/posts", route.posts
+app.get  "/posts/new", route.posts
+app.post "/posts/new", route.new_post
+
+# Handle 404
+app.use (req, res, next) ->
+  res.status 404
+
+  # respond with html page
+  if req.accepts("html")
+    res.render "partials/404", { url: req.url }
+    return
+
+  # respond with json
+  if req.accepts "json"
+    res.send { error: "Not found" }
+    return
+
+  # default to plain-text. send()
+  res.type("txt").send "Not found"
 
 #Launch
 app.listen 8123
