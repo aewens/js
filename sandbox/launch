@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-coffee -wc public/javascripts/ &
-supervisor -w public/javascripts/ -x node app.js
+coffee -wc . &
+nodemon app.js
+# supervisor -w . -x node app.js

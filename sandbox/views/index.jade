@@ -1,98 +1,37 @@
 extends layout
 
 block app
-    header.xheader
-        //- img(src="http://placehold.it/640x360.gif&text=sandbox")
-        img(src="/images/logo.gif")
-        nav
-            ul
-                li.active
-                    a(href="#") Home
-                li
-                    a(href="#") About
-                li
-                    a(href="#") Projects
-                li
-                    a(href="#") Contact
     .xcontent
         .content
-            article
+            article.post
                 header
-                    h2
-                        a(href="#", title="First Post") First Post
-                footer
-                    p.info This post was written by Kylobite
-                content
-                    p
-                        | Lorem ipsum dolor sit amet, consectetur adipisicing 
-                        | elit, sed do eiusmod tempor incididunt ut labore et 
-                        | dolore magna aliqua. Ut enim ad minim veniam, quis 
-                        | nostrud exercitation ullamco laboris nisi ut aliquip 
-                        | ex ea commodo consequat. Duis aute irure dolor in 
-                        | reprehenderit in voluptate velit esse cillum dolore 
-                        | eu fugiat nulla pariatur. Excepteur sint occaecat 
-                        | cupidatat non proident, sunt in culpa qui officia 
-                        | deserunt mollit anim id est laborum.
-                    p
-                        | Lorem ipsum dolor sit amet, consectetur adipisicing 
-                        | elit, sed do eiusmod tempor incididunt ut labore et 
-                        | dolore magna aliqua. Ut enim ad minim veniam, quis 
-                        | nostrud exercitation ullamco laboris nisi ut aliquip 
-                        | ex ea commodo consequat. Duis aute irure dolor in 
-                        | reprehenderit in voluptate velit esse cillum dolore 
-                        | eu fugiat nulla pariatur. Excepteur sint occaecat 
-                        | cupidatat non proident, sunt in culpa qui officia 
-                        | deserunt mollit anim id est laborum.
-            article
-                header
-                    h2
-                        a(href="#", title="Second Post") Second Post
-                footer
-                    p.info This post was written by Kylobite
-                content
-                    p
-                        | Lorem ipsum dolor sit amet, consectetur adipisicing 
-                        | elit, sed do eiusmod tempor incididunt ut labore et 
-                        | dolore magna aliqua. Ut enim ad minim veniam, quis 
-                        | nostrud exercitation ullamco laboris nisi ut aliquip 
-                        | ex ea commodo consequat. Duis aute irure dolor in 
-                        | reprehenderit in voluptate velit esse cillum dolore 
-                        | eu fugiat nulla pariatur. Excepteur sint occaecat 
-                        | cupidatat non proident, sunt in culpa qui officia 
-                        | deserunt mollit anim id est laborum.
-                    p
-                        | Lorem ipsum dolor sit amet, consectetur adipisicing 
-                        | elit, sed do eiusmod tempor incididunt ut labore et 
-                        | dolore magna aliqua. Ut enim ad minim veniam, quis 
-                        | nostrud exercitation ullamco laboris nisi ut aliquip 
-                        | ex ea commodo consequat. Duis aute irure dolor in 
-                        | reprehenderit in voluptate velit esse cillum dolore 
-                        | eu fugiat nulla pariatur. Excepteur sint occaecat 
-                        | cupidatat non proident, sunt in culpa qui officia 
-                        | deserunt mollit anim id est laborum.
-    
-    aside
-        article
-            h2 Top Sidebar
-            p
-                | Lorem ipsum dolor sit amet, consectetur adipisicing 
-                | elit, sed do eiusmod tempor incididunt ut labore et.
-    aside
-        article
-            h2 Middle Sidebar
-            p
-                | Lorem ipsum dolor sit amet, consectetur adipisicing 
-                | elit, sed do eiusmod tempor incididunt ut labore et.
-    aside
-        article
-            h2 Bottom Sidebar
-            p
-                | Lorem ipsum dolor sit amet, consectetur adipisicing 
-                | elit, sed do eiusmod tempor incididunt ut labore et.
-                
-    footer.xfooter
-        p &copy; Copyright 2014 Kylobite
-            span . All rights reserved.
+                    h3 Post
+                section
+                    form(method="post", action="/new")
+                        p
+                            input.form-control(type="text", name="title", placeholder="Title...")
+                        p
+                            input.form-control(type="text", name="author", placeholder="Author...")
+                        p
+                            input.form-control(type="text", name="slug", placeholder="Slug...")
+                        p
+                            textarea.form-control(name="body", placeholder="Body...")
+                        p
+                            input.btn.btn-default(type="submit", text="Submit")
+                        
+            - each post in posts
+                article
+                    header
+                        h3
+                            a(href="#", title="#{post.title}", slug="#{post.slug}") #{post.title}
+                    footer(slug="#{post.slug}")
+                        p.info 
+                            | This post was written by 
+                            b #{post.author} 
+                            | on 
+                            u #{post.created.toDateString()}
+                    section(slug="#{post.slug}")
+                        p #{post.body}
 
 
 

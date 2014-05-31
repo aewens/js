@@ -1,21 +1,25 @@
 $ ->
-    $("input[type=text]")[0].focus()
-    $("input[type=text]").addClass "form-control"
-    if $(".theme").is ".theme.default"
-        $("header,html,body,article,.widget,.btn,.theme").addClass "transition"
-    $(".button, .popup").on "click", ->
-        if not $(this).is ".button.on" and not $(this).is ":hidden"
-            $(".popup, .app, .button, .backdrop").toggleClass "on"
-
-    $(document).on "keydown", (e) ->
-        if e.keyCode is 27 and $(".button").is ".on"
-            $(".popup, .app, .button, .backdrop").toggleClass "on"
-            
-    $(".theme").on "click", ->
-        $("header,html,body,article,.widget,.btn,.theme").toggleClass "mono"
-        $("input[type=text]")[0].focus()
-        if $(this).is ".theme.default"
-            $(this).removeClass("default").addClass "monochrome"
+    $("input[name=title]").focus()
+    $(".items").children().on "click", ->
+        $(".items").children().removeClass "active"
+        $(this).addClass "active"
+    $("#theme").on "click", ->
+        if $(".body").is ".body.default"
+            $(".body").removeClass("default").addClass "monochrome"
+            $(this).text "Default"
+            $("html").css("background", "#fff")
         else
-            $(this).removeClass("monochrome").addClass "default"
-            
+            $(".body").removeClass("monochrome").addClass "default"
+            $(this).text "Monochrome"
+            $("html").css("background", "#eee")
+    $("#post").on "click", ->
+        $(".post").toggle()
+        if $(this).text() == "Show"
+            $(this).text "Hide"
+        else
+            $(this).text "Show"
+    $("a[slug]").on "click", (e) ->
+        e.preventDefault()
+        slug = $(this).attr("slug")
+        $("footer[slug="+slug+"]").toggle()
+        $("section[slug="+slug+"]").toggle()
