@@ -4,16 +4,14 @@
 *:after {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
 .transition {
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  -ms-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
 }
 html,
 body {
@@ -33,24 +31,13 @@ a {
 a:link,
 a:visited {
   color: #0c5a9f;
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
 }
 a:hover,
 a:active {
   color: #fff;
   background: #0c5a9f;
   text-decoration: none;
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
   -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
   border-radius: 5px;
 }
 .body {
@@ -66,4 +53,22 @@ a:active {
   right: 0;
   -webkit-box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
   box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
+}
+.app .view .cmd.shift {
+  position: relative;
+  margin: 25px auto;
+}
+.app .view .sheet {
+  width: 96%;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2%;
+  display: none;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
+}
+.app .view .sheet.shift {
+  display: block;
 }

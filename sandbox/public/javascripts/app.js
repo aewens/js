@@ -3,9 +3,28 @@
   var app;
 
   window.onload = function() {
-    var cmd;
+    var clear, cmd, help, help_text, sheet;
     cmd = document.getElementsByClassName("cmd")[0];
+    sheet = document.getElementsByClassName("sheet")[0];
+    cmd.style.width = (parseFloat(cmd.offsetWidth) - 52) + "px";
     cmd.focus();
+    help_text = function() {
+      var text;
+      text = "";
+      text = text + "<p><strong>Command</strong> <strong class='pull-right'>                        Description</strong></p>";
+      text = text + "<p>help <em class='pull-right'>                        See what you are reading now.</em></p>";
+      return text = text + "<p>clear <em class='pull-right'>                        Revert back to original state.</em></p>";
+    };
+    help = function() {
+      cmd.classList.add("shift");
+      sheet.classList.add("shift");
+      return sheet.innerHTML = help_text();
+    };
+    clear = function() {
+      cmd.classList.remove("shift");
+      sheet.classList.remove("shift");
+      return sheet.innerHTML = "";
+    };
     return cmd.onkeydown = function(e) {
       var cache, dir, keyCode, text;
       keyCode = e.which ? e.which : e.keyCode;
@@ -26,11 +45,12 @@
           return cmd.style[dir[text]] = (parseFloat(cache) - 100) + "px";
         } else {
           switch (text) {
+            case "help":
+              return help();
             case "clear":
-              cmd.style.top = 0;
-              cmd.style.down = 0;
-              cmd.style.left = 0;
-              return cmd.style.right = 0;
+              return clear();
+            case "reload":
+              return document.location.reload(true);
           }
         }
       }

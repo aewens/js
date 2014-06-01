@@ -9,17 +9,10 @@ xyellow = #ffb300
 sgrey   = #708090
 
 *, *:before, *:after
-    -webkit-box-sizing content-box
-    -moz-box-sizing content-box
     box-sizing content-box
-
-border-radius(n)
-    -webkit-border-radius n
-    -moz-border-radius n
-    border-radius n
     
 .transition
-    transition all 0.25s ease-in-out
+    transition all 2s ease-in-out
 
 html, body
     font-size 90%
@@ -36,13 +29,11 @@ a
     padding 2px 4px
     &:link, &:visited
         color xblue
-        transition all 0.25s ease-in-out
     &:hover, &:active
         color #fff
         background xblue
         text-decoration none
-        transition all 0.25s ease-in-out
-        border-radius(5px)
+        border-radius 5px
 
 .body
     width 70%
@@ -60,6 +51,21 @@ a
             box-shadow 0 3px 5px 0 rgba(0, 0, 0, 0.50),
                        inset 0 0 0 3px rgba(112,128,144,0.1),
                        0 3px 0 -2px rgba(0,0,0,0.1)
+            &.shift
+                position relative
+                margin 25px auto
+        .sheet
+            width 96%
+            margin 0 auto
+            background #fff
+            padding 2%
+            display none
+            border-radius 5px
+            box-shadow 0 3px 5px 0 rgba(0, 0, 0, 0.50),
+                       inset 0 0 0 3px rgba(112,128,144,0.1),
+                       0 3px 0 -2px rgba(0,0,0,0.1)
+            &.shift
+                display block
 
 
 
