@@ -4,6 +4,15 @@
 
   app = angular.module("sandbox", ["ngRoute"]);
 
+  app.config(function($routeProvider) {
+    return $routeProvider.when("/", {
+      templateUrl: "partials/index"
+    }).otherwise({
+      redirectTo: "/error",
+      templateUrl: "partials/404"
+    });
+  });
+
   app.controller("HelpCtrl", function($scope) {
     $scope.header = {
       command: "Command",
@@ -26,64 +35,72 @@
     ];
   });
 
-  app.config(function($routeProvider) {
-    return $routeProvider.when("/", {
-      templateUrl: "partials/index"
-    }).otherwise({
-      redirectTo: "/error",
-      templateUrl: "partials/404"
-    });
+  app.directive("enter", function() {
+    var CommandCtrl;
+    return {
+      restrict: "A",
+      scope: {},
+      controller: CommandCtrl = (function() {
+        function CommandCtrl($scope) {
+          $scope.help = function() {
+            $(".cmd").addClass("shift");
+            return $(".sheet").addClass("shift");
+          };
+          $scope.clear = function() {
+            $(".cmd").removeClass("shift");
+            return $(".sheet").removeClass("shift");
+          };
+          $scope.redirect = function(path) {
+            return window.location.href = "http://" + window.location.host + "/" + path;
+          };
+        }
+
+        return CommandCtrl;
+
+      })(),
+      link: function(scope, element) {
+        return element.bind("keypress", function(e) {
+          var cache, dir, text;
+          if (e.keyCode === 13) {
+            text = $(".cmd").val();
+            $(".cmd").val("");
+            dir = {
+              "up": "top",
+              "down": "bottom",
+              "left": "left",
+              "right": "right"
+            };
+            if (dir[text] !== void 0) {
+              cache = $(".cmd").css(dir[txt]);
+              if (cache === "") {
+                cache = 0;
+              }
+              return $(".cmd").css(dir[text], (parseFloat(cache) - 100) + "px");
+            } else {
+              switch (text) {
+                case "help":
+                  return scope.help();
+                case "clear":
+                  return scope.clear();
+                case "reload":
+                  return scope.redirect("");
+                case "posts":
+                  return scope.redirect("posts");
+              }
+            }
+          }
+        });
+      }
+    };
   });
 
   run = function() {
-    var check, clear, cmd, help, redirect, sheet;
+    var check, cmd, sheet;
+    check = document.getElementsByClassName("cmd")[0].style.width;
     cmd = $(".cmd");
     sheet = $(".sheet");
-    check = document.getElementsByClassName("cmd")[0].style.width;
     cmd.width((cmd.width() - 26) + "px");
-    cmd.focus();
-    help = function() {
-      cmd.addClass("shift");
-      return sheet.addClass("shift");
-    };
-    clear = function() {
-      cmd.removeClass("shift");
-      return sheet.removeClass("shift");
-    };
-    redirect = function(path) {
-      return window.location.href = "http://" + window.location.host + "/" + path;
-    };
-    return cmd.keypress(function(e) {
-      var cache, dir, txt;
-      if (e.keyCode === 13) {
-        txt = cmd.val();
-        cmd.val("");
-        dir = {
-          "up": "top",
-          "down": "bottom",
-          "left": "left",
-          "right": "right"
-        };
-        if (dir[txt] !== void 0) {
-          cache = cmd.css(dir[txt]);
-          if (cache === "") {
-            cache = 0;
-          }
-          return cmd.css(dir[txt], (parseFloat(cache) - 100) + "px");
-        } else {
-          switch (txt) {
-            case "help":
-              return help();
-            case "clear":
-              return clear();
-            case "reload":
-              return document.location.reload(true);
-            case "posts":
-              return redirect("posts");
-          }
-        }
-      }
-    });
+    return cmd.focus();
   };
 
   setTimeout(run, 500);
