@@ -2,6 +2,41 @@
 (function() {
   var app;
 
+  window.onload = function() {
+    var cmd;
+    cmd = document.getElementsByClassName("cmd")[0];
+    cmd.focus();
+    return cmd.onkeydown = function(e) {
+      var cache, dir, keyCode, text;
+      keyCode = e.which ? e.which : e.keyCode;
+      if (keyCode === 13) {
+        text = cmd.value;
+        cmd.value = "";
+        dir = {
+          "up": "top",
+          "down": "bottom",
+          "left": "left",
+          "right": "right"
+        };
+        if (dir[text] !== void 0) {
+          cache = cmd.style[dir[text]];
+          if (cache === "") {
+            cache = 0;
+          }
+          return cmd.style[dir[text]] = (parseFloat(cache) - 100) + "px";
+        } else {
+          switch (text) {
+            case "clear":
+              cmd.style.top = 0;
+              cmd.style.down = 0;
+              cmd.style.left = 0;
+              return cmd.style.right = 0;
+          }
+        }
+      }
+    };
+  };
+
   app = angular.module("sandbox", ["ngRoute"]);
 
   app.controller("IndexCtrl", function() {});

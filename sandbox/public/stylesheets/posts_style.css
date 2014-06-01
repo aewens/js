@@ -1,5 +1,14 @@
 @import url("http://fonts.googleapis.com/css?family=Quicksand");
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:700,400");
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
 html,
 body {
   font-size: 90%;

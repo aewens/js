@@ -1,4 +1,13 @@
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:700,400");
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
 .transition {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
@@ -12,8 +21,10 @@ body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
   text-align: left;
-  background: #fff;
+  background: #708090;
   color: #000;
+  position: relative;
+  height: 100%;
 }
 a {
   text-decoration: none;
@@ -45,4 +56,14 @@ a:active {
 .body {
   width: 70%;
   margin: 0 auto;
+}
+.app .view .cmd {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
 }
