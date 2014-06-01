@@ -4,33 +4,42 @@
 
   window.onload = function() {
     var clear, cmd, help, help_text, sheet;
-    cmd = document.getElementsByClassName("cmd")[0];
-    sheet = document.getElementsByClassName("sheet")[0];
-    cmd.style.width = (parseFloat(cmd.offsetWidth) - 52) + "px";
+    cmd = $(".cmd");
+    sheet = $(".sheet");
+    cmd.width((cmd.width() - 26) + "px");
     cmd.focus();
     help_text = function() {
-      var text;
+      var format, header, text;
+      header = function(cmd, desc) {
+        var text;
+        text = "";
+        text = text + "<p><strong>" + cmd + "</strong>";
+        return text = text + "<strong class='pull-right'>" + desc + "</strong></p>";
+      };
+      format = function(cmd, desc) {
+        return "<p>" + cmd + "<em class='pull-right'>" + desc + "</em></p>";
+      };
       text = "";
-      text = text + "<p><strong>Command</strong> <strong class='pull-right'>                        Description</strong></p>";
-      text = text + "<p>help <em class='pull-right'>                        See what you are reading now.</em></p>";
-      return text = text + "<p>clear <em class='pull-right'>                        Revert back to original state.</em></p>";
+      text = text + header("Command", "Description");
+      text = text + format("help", "See what you are reading now.");
+      text = text + format("clear", "Revert back to original state.");
+      return text = text + format("reload", "Reload the current page.");
     };
     help = function() {
-      cmd.classList.add("shift");
-      sheet.classList.add("shift");
-      return sheet.innerHTML = help_text();
+      cmd.addClass("shift");
+      sheet.addClass("shift");
+      return sheet.html(help_text());
     };
     clear = function() {
-      cmd.classList.remove("shift");
-      sheet.classList.remove("shift");
-      return sheet.innerHTML = "";
+      cmd.removeClass("shift");
+      sheet.removeClass("shift");
+      return sheet.html("");
     };
-    return cmd.onkeydown = function(e) {
-      var cache, dir, keyCode, text;
-      keyCode = e.which ? e.which : e.keyCode;
-      if (keyCode === 13) {
-        text = cmd.value;
-        cmd.value = "";
+    return cmd.keypress(function(e) {
+      var cache, dir, text;
+      if (e.keyCode === 13) {
+        text = cmd.val();
+        cmd.val("");
         dir = {
           "up": "top",
           "down": "bottom",
@@ -38,11 +47,11 @@
           "right": "right"
         };
         if (dir[text] !== void 0) {
-          cache = cmd.style[dir[text]];
+          cache = cmd.css(dir[text]);
           if (cache === "") {
             cache = 0;
           }
-          return cmd.style[dir[text]] = (parseFloat(cache) - 100) + "px";
+          return cmd.css(dir[text], (parseFloat(cache) - 100) + "px");
         } else {
           switch (text) {
             case "help":
@@ -54,7 +63,7 @@
           }
         }
       }
-    };
+    });
   };
 
   app = angular.module("sandbox", ["ngRoute"]);

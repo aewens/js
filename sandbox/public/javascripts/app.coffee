@@ -1,44 +1,48 @@
 # Effects
 window.onload = ->
-    cmd   = document.getElementsByClassName("cmd")[0]
-    sheet = document.getElementsByClassName("sheet")[0]
+    cmd   = $(".cmd")
+    sheet = $(".sheet")
     
-    cmd.style.width = (parseFloat(cmd.offsetWidth) - 52) + "px"
+    cmd.width (cmd.width() - 26) + "px"
     cmd.focus()
     
     help_text = ->
+        header = (cmd, desc) ->
+            text = ""
+            text = text + "<p><strong>" + cmd + "</strong>"
+            text = text + "<strong class='pull-right'>" + desc + "</strong></p>"
+        format = (cmd, desc) ->
+            "<p>" + cmd + "<em class='pull-right'>" + desc + "</em></p>"
+                
         text = ""
-        text = text + "<p><strong>Command</strong> <strong class='pull-right'>
-                        Description</strong></p>"
-        text = text + "<p>help <em class='pull-right'>
-                        See what you are reading now.</em></p>"
-        text = text + "<p>clear <em class='pull-right'>
-                        Revert back to original state.</em></p>"
+        text = text + header "Command", "Description"
+        text = text + format "help",    "See what you are reading now."
+        text = text + format "clear",   "Revert back to original state."
+        text = text + format "reload",   "Reload the current page."
 
     help = ->
-        cmd.classList.add "shift"
-        sheet.classList.add "shift"
-        sheet.innerHTML = help_text()
+        cmd.addClass "shift"
+        sheet.addClass "shift"
+        sheet.html help_text()
     
     clear = ->
-        cmd.classList.remove "shift"
-        sheet.classList.remove "shift"
-        sheet.innerHTML = ""
+        cmd.removeClass "shift"
+        sheet.removeClass "shift"
+        sheet.html ""
     
-    cmd.onkeydown = (e) ->
-        keyCode = if e.which then e.which else e.keyCode
-        if keyCode == 13
-            text = cmd.value
-            cmd.value = ""
+    cmd.keypress (e) ->
+        if e.keyCode == 13
+            text = cmd.val()
+            cmd.val ""
             dir =
                 "up":    "top"
                 "down":  "bottom"
                 "left":  "left"
                 "right": "right"
             if dir[text] != undefined
-                cache = cmd.style[dir[text]]
+                cache = cmd.css dir[text]
                 if cache == "" then cache = 0
-                cmd.style[dir[text]] = (parseFloat(cache) - 100) + "px"
+                cmd.css dir[text], (parseFloat(cache) - 100) + "px"
             else
                 switch text
                     when "help" then help()
