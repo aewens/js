@@ -1,63 +1,70 @@
+# Angular
+app = angular.module "sandbox", ["ngRoute"]
+
+app.controller "HelpCtrl", ($scope) ->
+    $scope.header =
+        command:     "Command"
+        description: "Description"
+    $scope.helper = [
+        {command: "help",   description: "See what you are reading now."},
+        {command: "clear",  description: "Revert back to original state."},
+        {command: "reload", description: "Reload the current page."},
+        {command: "posts",  description: "Redirects to the 'posts' page."}
+    ]
+        
+app.config ($routeProvider) ->
+    $routeProvider
+    .when "/",
+        # controller: "HelpCtrl"
+        templateUrl: "partials/index"
+    .otherwise
+        redirectTo: "/error"
+        templateUrl: "partials/404"
+
 # Effects
-window.onload = ->
+run = ->
     cmd   = $(".cmd")
     sheet = $(".sheet")
     
+    # Will display error in console if this is undefined
+    check = document.getElementsByClassName("cmd")[0].style.width
+    
     cmd.width (cmd.width() - 26) + "px"
     cmd.focus()
-    
-    help_text = ->
-        header = (cmd, desc) ->
-            text = ""
-            text = text + "<p><strong>" + cmd + "</strong>"
-            text = text + "<strong class='pull-right'>" + desc + "</strong></p>"
-        format = (cmd, desc) ->
-            "<p>" + cmd + "<em class='pull-right'>" + desc + "</em></p>"
-                
-        text = ""
-        text = text + header "Command", "Description"
-        text = text + format "help",    "See what you are reading now."
-        text = text + format "clear",   "Revert back to original state."
-        text = text + format "reload",   "Reload the current page."
 
     help = ->
         cmd.addClass "shift"
         sheet.addClass "shift"
-        sheet.html help_text()
+        # sheet.html help_text()
     
     clear = ->
         cmd.removeClass "shift"
         sheet.removeClass "shift"
-        sheet.html ""
+        # sheet.html ""
+        
+    redirect = (path) ->
+        window.location.href = "http://" + window.location.host + "/" + path
     
     cmd.keypress (e) ->
         if e.keyCode == 13
-            text = cmd.val()
+            txt = cmd.val()
             cmd.val ""
             dir =
                 "up":    "top"
                 "down":  "bottom"
                 "left":  "left"
                 "right": "right"
-            if dir[text] != undefined
-                cache = cmd.css dir[text]
+            if dir[txt] != undefined
+                cache = cmd.css dir[txt]
                 if cache == "" then cache = 0
-                cmd.css dir[text], (parseFloat(cache) - 100) + "px"
+                cmd.css dir[txt], (parseFloat(cache) - 100) + "px"
             else
-                switch text
+                switch txt
                     when "help" then help()
                     when "clear" then clear()
                     when "reload" then document.location.reload true
+                    when "posts" then redirect "posts"
                     else return
-
-# Angular
-app = angular.module "sandbox", ["ngRoute"]
-
-app.controller "IndexCtrl", ->
-app.config ($routeProvider) ->
-    $routeProvider
-    .when "/",
-        templateUrl: "partials/index"
-    .otherwise
-        redirectTo: "/error"
-        templateUrl: "partials/404"
+                        
+# Hack to make everything work
+setTimeout run, 500

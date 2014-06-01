@@ -1,2 +1,9 @@
 input.cmd.form-control(type="text", placeholder="Command...")
 .sheet
+    div(ng-controller="HelpCtrl")
+        p
+            strong {{header.command}}
+            strong.pull-right {{header.description}}
+        div(ng-repeat="help in helper")
+            p {{help.command}}
+                em.pull-right {{help.description}}
