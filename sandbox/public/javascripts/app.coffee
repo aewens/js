@@ -66,5 +66,5 @@ run = ->
                     when "posts" then redirect "posts"
                     else return
                         
-# Hack to make everything work
+# Hack to make things work
 setTimeout run, 500
