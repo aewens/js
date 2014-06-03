@@ -6,6 +6,7 @@
 
   app.config(function($routeProvider) {
     return $routeProvider.when("/", {
+      controller: "HelpCtrl",
       templateUrl: "partials/index"
     }).otherwise({
       redirectTo: "/error",
@@ -31,6 +32,9 @@
       }, {
         command: "posts",
         description: "Redirects to the 'posts' page."
+      }, {
+        command: "canvas",
+        description: "Load the <canvas> onto the page."
       }
     ];
   });
@@ -52,6 +56,33 @@
           };
           $scope.redirect = function(path) {
             return window.location.href = "http://" + window.location.host + "/" + path;
+          };
+          $scope.show_canvas = function() {
+            var canvas, canvas_margin, ch, cmd, ctx, cw, parent, spawn, text;
+            cmd = document.getElementsByClassName("cmd")[0];
+            parent = document.getElementsByClassName("view")[0];
+            spawn = document.getElementById("canvas");
+            cmd.classList.add("shift");
+            if (spawn.innerHTML === "") {
+              canvas = document.createElement("canvas");
+              text = "Your browser does not support &lt;canvas&gt;, " + "try one of <a href='http://browsehappy.com'>" + "these</a> instead.";
+              canvas.innerHTML = text;
+              spawn.appendChild(canvas);
+              spawn.style.width = parent.offsetWidth;
+              canvas.width = spawn.offsetWidth / 2;
+              canvas.height = canvas.width / 16 * 9;
+              canvas_margin = (spawn.offsetWidth - canvas.width) / 2;
+              canvas.style.margin = "0 " + canvas_margin + "px";
+              canvas.style.borderRadius = "5px";
+              canvas.style.boxShadow = "0 3px 5px 0 rgba(0, 0, 0, 0.5)," + "0 3px 0 -2px rgba(0,0,0,0.1)";
+              cw = canvas.width;
+              ch = canvas.height;
+              ctx = canvas.getContext("2d");
+              ctx.fillStyle = "#000";
+              return ctx.fillRect(0, 0, cw, ch);
+            } else {
+
+            }
           };
         }
 
@@ -86,6 +117,8 @@
                   return scope.redirect("");
                 case "posts":
                   return scope.redirect("posts");
+                case "canvas":
+                  return scope.show_canvas();
               }
             }
           }

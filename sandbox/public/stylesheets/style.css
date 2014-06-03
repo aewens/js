@@ -51,8 +51,8 @@ a:active {
   bottom: 0;
   left: 0;
   right: 0;
-  -webkit-box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
-  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.2), 0 3px 0 -2px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.2), 0 3px 0 -2px rgba(0,0,0,0.1);
 }
 .app .view .cmd.shift {
   position: relative;
@@ -66,8 +66,8 @@ a:active {
   display: none;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  -webkit-box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
-  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.1), 0 3px 0 -2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.2), 0 3px 0 -2px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.2), 0 3px 0 -2px rgba(0,0,0,0.1);
 }
 .app .view .sheet.shift {
   display: block;
