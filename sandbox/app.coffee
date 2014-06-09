@@ -3,9 +3,6 @@ express  = require "express"
 stylus   = require "stylus"
 nib      = require "nib"
 route    = require "./routes"
-mongoose = require "mongoose"
-
-mongoose.connect "mongodb://localhost/postsdb"
 
 #Express yourself!
 app = express()
@@ -28,9 +25,6 @@ app.use express.bodyParser()
 #Routes
 app.get  "/", route.index
 app.get  "/partials/:name", route.partials
-app.get  "/posts", route.posts
-app.get  "/posts/new", route.posts
-app.post "/posts/new", route.new_post
 
 # Handle 404
 app.use (req, res, next) ->
