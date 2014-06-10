@@ -8,23 +8,13 @@
     }
   });
 
-  require(["models/test"], function(TestModel) {
-    var view0, view1, view2;
-    view0 = new TestModel;
-    view1 = new TestModel({
-      test: "parameter"
+  require(["modules/router", "backbone"], function(Router, Backbone) {
+    var router;
+    router = new Router;
+    router.on("route:home", function() {
+      return console.log("Home page");
     });
-    view2 = new TestModel;
-    console.log(view0.get("test"));
-    console.log(view1.get("test"));
-    console.log(view2.get("test"));
-    view2.set("test", "setter", {
-      validate: true
-    });
-    return view2.set({
-      test: "setters",
-      other: "nil"
-    });
+    return Backbone.history.start();
   });
 
 }).call(this);

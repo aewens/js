@@ -2,6 +2,7 @@
     "name": "Sandbox",
     "version": "0.0.1",
     "dependencies": {
+        "bootstrap": null,
         "jquery": null,
         "backbone": null,
         "underscore": null,
