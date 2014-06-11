@@ -6,7 +6,9 @@ block app
         hr
         .page
         
-    script#user_list_tmpl(type="text/template")
+    script#user_list(type="text/template")
+        a.btn.btn-primary(href="#/new") New User
+        hr
         table.table.table-striped
             thead
                 tr
@@ -17,11 +19,11 @@ block app
             tbody
                 <% _.each(users, function(users) { %>
                 tr
-                    td!="<%= users.username %>"
-                    td!="<%= users.first %>"
-                    td!="<%= users.last %>"
+                    td <%= users.username %>
+                    td <%= users.first %>
+                    td <%= users.last %>
                     td
-                <% }); %>
+                <% }); %> 
 
 
 
