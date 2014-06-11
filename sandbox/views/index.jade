@@ -5,6 +5,23 @@ block app
         h1 User Management
         hr
         .page
+        
+    script#user_list_tmpl(type="text/template")
+        table.table.table-striped
+            thead
+                tr
+                    th Username
+                    th First Name
+                    th Last Name
+                    th
+            tbody
+                <% _.each(users, function(users) { %>
+                tr
+                    td!="<%= users.username %>"
+                    td!="<%= users.first %>"
+                    td!="<%= users.last %>"
+                    td
+                <% }); %>
 
 
 

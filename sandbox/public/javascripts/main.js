@@ -8,11 +8,12 @@
     }
   });
 
-  require(["modules/router", "backbone"], function(Router, Backbone) {
-    var router;
+  require(["underscore", "backbone", "modules/router", "views/userlist"], function(_, Backbone, Router, UserList) {
+    var router, user_list;
+    user_list = new UserList;
     router = new Router;
     router.on("route:home", function() {
-      return console.log("Home page");
+      return user_list.render();
     });
     return Backbone.history.start();
   });

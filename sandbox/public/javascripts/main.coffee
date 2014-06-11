@@ -4,9 +4,16 @@ requirejs.config
         "underscore": "../vendor/underscore/underscore"
         "backbone":   "../vendor/backbone/backbone"
         
-require ["modules/router", "backbone"], (Router, Backbone) ->
+require [
+    "underscore",
+    "backbone",
+    "modules/router",
+    "views/userlist"
+], (_, Backbone, Router, UserList) ->
+    user_list = new UserList
+    
     router = new Router
     router.on "route:home", ->
-        console.log "Home page"
+        user_list.render()
         
     Backbone.history.start()
