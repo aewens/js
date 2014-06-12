@@ -19,11 +19,25 @@ block app
             tbody
                 <% _.each(users, function(users) { %>
                 tr
-                    td <%= users.username %>
+                    td <%= users.user %>
                     td <%= users.first %>
                     td <%= users.last %>
                     td
-                <% }); %> 
+                <% }); %>
+    
+    script#edit_user(type="text/template")
+        form(role="form")#edit_user_form
+            legend Create User
+            div.form-group
+                label(for="user") Username
+                input#user.form-control(type="text", name="user", autofocus)
+            div.form-group
+                label(for="first") First Name
+                input#first.form-control(type="text", name="first")
+            div.form-group
+                label(for="last") Last Name
+                input#last.form-control(type="text", name="last")
+            input.btn.btn-default(type="submit") Create
 
 
 

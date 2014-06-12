@@ -32,7 +32,7 @@ app.use (req, res, next) ->
 
   # respond with html page
   if req.accepts("html")
-    res.render "partials/404", { url: req.url }
+    res.render "partials/404", { url: req.url, title: "Oh no!" }
     return
 
   # respond with json

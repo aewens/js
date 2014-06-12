@@ -1,6 +1,6 @@
 define ["underscore", "backbone"], (_, Backbone) ->
-    Users = Backbone.Model.extend
+    List = Backbone.Model.extend
         defaults:
-            list: []
+            users: []
             
-    return Users
+    return List

@@ -11,11 +11,11 @@
         var self, template, users;
         self = this;
         $.get("/javascripts/data/users.json", function(data) {
-          if (self.model.get("list") !== []) {
-            return self.model.set("list", data);
+          if (self.model.get("users") !== []) {
+            return self.model.set("users", data);
           }
         });
-        users = this.model.get("list");
+        users = this.model.get("users");
         template = _.template($("#user_list").html(), {
           users: users
         });

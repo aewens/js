@@ -39,7 +39,8 @@
     res.status(404);
     if (req.accepts("html")) {
       res.render("partials/404", {
-        url: req.url
+        url: req.url,
+        title: "Oh no!"
       });
       return;
     }

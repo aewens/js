@@ -1,67 +1,16 @@
 [
-    {
-        "username": "root",
-        "first": "_",
-        "last": "_"
-    },
-    {
-        "username": "admin",
-        "first": "Admin",
-        "last": "Istrator"
-    },
-    {
-        "username": "guest",
-        "first": "Guest",
-        "last": "Guest"
-    },
-    {
-        "username": "anonymous",
-        "first": "Anon",
-        "last": "Ymous"
-    },
-    {
-        "username": "banned",
-        "first": "Who",
-        "last": "Cares"
-    },
-    {
-        "username": "generic",
-        "first": "Gen",
-        "last": "Eric"
-    },
-    {
-        "username": "username",
-        "first": "User",
-        "last": "Name"
-    },
-    {
-        "username": "camel_case",
-        "first": "Camel",
-        "last": "Case"
-    },
-    {
-        "username": "not_nsa",
-        "first": "Edward",
-        "last": "Snowden"
-    },
-    {
-        "username": "l33t_hacker",
-        "first": "Leet",
-        "last": "Hacker"
-    },
-    {
-        "username": "qwerty",
-        "first": "Qwerty",
-        "last": "Uiop"
-    },
-    {
-        "username": "bot",
-        "first": "Google",
-        "last": "Bot"
-    },
-    {
-        "username": "kai",
-        "first": "K",
-        "last": "Ai"
-    }
+    {"user": "root", "first": "_", "last": "_"},
+    {"user": "admin", "first": "Admini", "last": "Strator"},
+    {"user": "guest", "first": "Temp", "last": "Orary"},
+    {"user": "anonymous", "first": "Guy", "last": "Fawkes"},
+    {"user": "banned", "first": "Your", "last": "Mom"},
+    {"user": "generic", "first": "Gen", "last": "Eric"},
+    {"user": "username", "first": "User", "last": "Name"},
+    {"user": "qwerty", "first": "Qwerty", "last": "Uiop"},
+    {"user": "camel_case", "first": "UnderScore", "last": "Case"},
+    {"user": "kylo", "first": "Kylo", "last": "Bite"},
+    {"user": "nsa", "first": "Edward", "last": "Snowden"},
+    {"user": "bot", "first": "Google", "last": "Bot"},
+    {"user": "neo", "first": "Thomas", "last": "Anderson"},
+    {"user": "kai", "first": "KAI", "last": "Artificial Intelligence"}
 ]

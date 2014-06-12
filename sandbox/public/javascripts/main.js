@@ -8,17 +8,18 @@
     }
   });
 
-  require(["underscore", "backbone", "modules/router", "views/userlist", "models/users"], function(_, Backbone, Router, UserList, Users) {
-    var router, user_list;
+  require(["underscore", "backbone", "modules/router", "models/list", "views/userlist", "views/edituser"], function(_, Backbone, Router, List, UserList, EditUser) {
+    var edit_user, router, user_list;
     user_list = new UserList({
-      model: new Users
+      model: new List
     });
+    edit_user = new EditUser;
     router = new Router;
     router.on("route:home", function() {
       return user_list.render();
     });
     router.on("route:editUser", function() {
-      return console.log("Show user form");
+      return edit_user.render();
     });
     return Backbone.history.start();
   });
