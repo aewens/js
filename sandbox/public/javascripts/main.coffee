@@ -1,24 +1,24 @@
-requirejs.config
+require.config
     paths: 
         "jquery":     "../vendor/jquery/dist/jquery.min"
         "underscore": "../vendor/underscore/underscore"
         "backbone":   "../vendor/backbone/backbone"
         
 require [
-    "underscore",
+    "jquery", 
+    "underscore", 
     "backbone",
-    "modules/router",
-    "models/list"
-    "views/userlist",
-    "views/edituser"
-], (_, Backbone, Router, List, UserList, EditUser) ->
-    user_list = new UserList {model: new List}
-    edit_user = new EditUser
+    "models/status",
+    "collections/status_list"
+], ($, _, Backbone, Status, Statuses) ->
+    statuses = new Statuses
     
-    router = new Router
-    router.on "route:home", ->
-        user_list.render()
-    router.on "route:editUser", ->
-        edit_user.render()
-        
-    Backbone.history.start()
+    $(document).ready ->
+        $("#new-status").submit (e) ->
+            status = new Status
+                author: $("input[name=author]").val()
+                content: $("input[name=content]").val()
+            statuses.add status
+            
+            console.log statuses.toJSON()
+            return false

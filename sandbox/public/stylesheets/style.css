@@ -1,28 +1,4 @@
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:700,400");
-html,
-body {
-  font-size: 90%;
-  font-family: "Open Sans", sans-serif;
-  line-height: 1.5;
-  text-align: left;
-  background: #fff;
-  color: #000;
-  position: relative;
-  width: 100%;
-}
-a {
-  text-decoration: none;
-  padding: 2px 4px;
-}
-a:link,
-a:visited {
-  color: #0c5a9f;
-}
-a:hover,
-a:active {
-  color: #fff;
-  background: #0c5a9f;
-  text-decoration: none;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+#new-status {
+  width: 50%;
+  margin-right: 50%;
 }
