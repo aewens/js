@@ -1,0 +1,149 @@
+.transition {
+  transition: all 0.25s ease-in-out;
+}
+.default {
+  background: #eee;
+  color: #111;
+  transition: all 0.25s ease-in-out;
+}
+.default a:link,
+.default a:visited {
+  color: #0c5a9f;
+  transition: all 0.25s ease-in-out;
+}
+.default a:hover,
+.default a:active {
+  color: #fff;
+  background: #0c5a9f;
+  transition: all 0.25s ease-in-out;
+}
+.default span.button {
+  background: #0c5a9f;
+  color: #fff;
+  transition: all 0.25s ease-in-out;
+}
+.default span.button:hover {
+  background: none;
+  color: #0c5a9f;
+  transition: all 0.25s ease-in-out;
+}
+.default span.button:active {
+  background: none;
+  color: #ffb300;
+  transition: all 0.25s ease-in-out;
+}
+.default .xheader nav {
+  background: #666;
+  transition: all 0.25s ease-in-out;
+}
+.default .xheader nav ul li.active a:link,
+.default .xheader nav ul li.active a:visited {
+  background: #0c5a9f;
+  text-shadow: none;
+  transition: all 0.25s ease-in-out;
+}
+.default .xheader nav ul li a:link,
+.default .xheader nav ul li a:visited {
+  color: #fff;
+  transition: all 0.25s ease-in-out;
+}
+.default .xheader nav ul li a:hover,
+.default .xheader nav ul li a:active {
+  background: #0c5a9f;
+  text-shadow: none;
+  transition: all 0.25s ease-in-out;
+}
+.default .app .xcontent .content article {
+  background: #fff;
+  transition: all 0.25s ease-in-out;
+}
+.default .app .xcontent .content article .info {
+  color: #999;
+  transition: all 0.25s ease-in-out;
+}
+.default aside {
+  background: #fff;
+  transition: all 0.25s ease-in-out;
+}
+.default .xfooter {
+  background: #666;
+  transition: all 0.25s ease-in-out;
+}
+.default .xfooter p {
+  color: #fff;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome {
+  background: #fff;
+  color: #000;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome a:link,
+.monochrome a:visited {
+  color: #000;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome a:hover,
+.monochrome a:active {
+  color: #fff;
+  background: #000;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome span.button {
+  background: #000;
+  color: #fff;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome span.button:hover {
+  background: none;
+  color: #000;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome span.button:active {
+  background: none;
+  color: #ffb300;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome .xheader nav {
+  background: #fff;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome .xheader nav ul li.active a:link,
+.monochrome .xheader nav ul li.active a:visited {
+  background: #000;
+  color: #fff;
+  text-shadow: none;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome .xheader nav ul li a:link,
+.monochrome .xheader nav ul li a:visited {
+  color: #000;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome .xheader nav ul li a:hover,
+.monochrome .xheader nav ul li a:active {
+  background: #000;
+  color: #fff;
+  text-shadow: none;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome .app .xcontent .content article {
+  background: #fff;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome .app .xcontent .content article .info {
+  color: #999;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome aside {
+  background: #fff;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome .xfooter {
+  background: #fff;
+  transition: all 0.25s ease-in-out;
+}
+.monochrome .xfooter p {
+  color: #000;
+  transition: all 0.25s ease-in-out;
+}

@@ -1,0 +1,32 @@
+extends layout
+
+block app
+    h1 Statusi
+    br
+    form#new-status(method="post")
+        legend New Status
+        .form-group
+            .input-group
+                span.input-group-addon @
+                input.form-control(type="text", name="author", autorfocus,
+                                    placeholder="Username...")
+        .form-group
+            .input-group
+                input.form-control(type="text", name="content",
+                                    placeholder="Status...")
+                span.input-group-btn
+                    input.btn.btn-default(type="submit") Create
+    hr
+    .page
+    
+    script#status-tmpl(type="text/template")
+        span.author  <%= author %>: 
+        span.content <%= content %>
+
+
+
+
+
+
+
+

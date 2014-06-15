@@ -1,0 +1,16 @@
+[
+    {"user": "root", "first": "_", "last": "_"},
+    {"user": "admin", "first": "Admini", "last": "Strator"},
+    {"user": "guest", "first": "Temp", "last": "Orary"},
+    {"user": "anonymous", "first": "Guy", "last": "Fawkes"},
+    {"user": "banned", "first": "Your", "last": "Mom"},
+    {"user": "generic", "first": "Gen", "last": "Eric"},
+    {"user": "username", "first": "User", "last": "Name"},
+    {"user": "qwerty", "first": "Qwerty", "last": "Uiop"},
+    {"user": "camel_case", "first": "UnderScore", "last": "Case"},
+    {"user": "kylo", "first": "Kylo", "last": "Bite"},
+    {"user": "nsa", "first": "Edward", "last": "Snowden"},
+    {"user": "bot", "first": "Google", "last": "Bot"},
+    {"user": "neo", "first": "Thomas", "last": "Anderson"},
+    {"user": "kai", "first": "KAI", "last": "Artificial Intelligence"}
+]

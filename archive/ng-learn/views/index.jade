@@ -1,0 +1,135 @@
+extends layout
+
+block app
+    .ng-block
+        div(ng-controller="TestCtrl")
+            h3 Hello 
+                span {{data.message}}
+
+    .ng-block
+        input.form-control(type="text", ng-model="message", placeholder="Parent")
+        h3 {{message}}
+        div(ng-controller="ThisCtrl")
+            input.form-control(type="text", ng-model="message", placeholder="Child")
+            h3 {{message}}
+        div(ng-controller="ThatCtrl")
+            input.form-control(type="text", ng-model="message", placeholder="Child")
+            h3 {{message}}
+
+    .ng-block
+        div(ng-controller="RedCtrl")
+            input.form-control(type="text", ng-model="share.message", placeholder="Original")
+            h3 {{share.message}}
+        
+        div(ng-controller="BlueCtrl")
+            input.form-control(type="text", ng-model="share.message", placeholder="Inverse")
+            h3 {{flipMessage(share.message)}}
+            input.form-control(type="text", ng-model="share.message", placeholder="Mirror")
+            h3 {{share.message|mirror}}
+
+    .ng-block
+        div(ng-controller="ProjectCtrl")
+            input.form-control(type="text", ng-model="search.$", placeholder="Search")
+            table.table.table-striped
+                tr(ng-repeat="tool in project.tools | orderBy:'-name' | limitTo:'6' | filter:search")
+                    td {{tool.name | lowercase}}
+                    td {{tool.isFor | uppercase}}
+    .ng-block
+        fromjs
+        div(fromjs, stacked)
+        #fromjs(class="fromjs")
+
+    .ng-block
+        .hover(hoveron="emphasis", hoveroff) Hover over me
+
+    .ng-block
+        div
+            b Read the console | Hover
+        hr
+        div(ng-controller="TwitterCtrl")
+            .hover(enter="loadMoreTweets()") Rollover to load more tweets
+        hr
+        player.hover(health defense) Rollover to load durable player powers
+        hr
+        player.hover(health strength) Rollover to load strong player powers
+
+    .ng-block
+        div(ng-controller="TaskCtrl")
+            .hover(servant, done="logTask(task)")
+            .hover(servant, done="logTask(task)")
+            .hover(servant, done="logTask(task)")
+            hr
+            ul#tasks
+
+    .ng-block
+        div(ng-controller="FlavorCtrl")
+            div(icecream, flavor="{{icecream}}")
+
+        div(ng-controller="ChoiceCtrl")
+            div(drink, choice="drink")
+
+    .ng-block
+        div(ng-controller="PhoneCtrl")
+            div(phone, dial="callHome(message)")
+            hr
+            div(phone, dial="callHome(message)")
+
+    .ng-block
+        div
+            b Read the console | Click
+        hr
+        div(ng-controller="MessageCtrl")
+            client(server="127.0.0.1", user="user", ping="sendMessage(server, user, message)")
+            hr
+            client(server="192.168.1.1", user="user", ping="sendMessage(server, user, message)")
+
+    .ng-block
+        transclusion
+            span I was transcluded!
+
+    .ng-block
+        div(ng-controller="SomeCtrl")
+            span.hover(ng-click="SomeCtrl.someFunc()") Click me, read the console
+
+    .ng-block
+        div
+            b Click title to see content
+        hr
+        input.form-control(type="text", ng-model="model.title", placeholder="Title")
+        input.form-control(type="text", ng-model="model.content", placeholder="Content")
+        hr
+        showhide(title="{{model.title}}")
+            | {{model.content}}
+
+    .ng-block
+        script(type="text/ng-template", id="passwordy.html")
+            div
+                input.form-control(type="text", ng-model="model.password", placeholder="Password...")
+        passwordy
+
+    .ng-block
+        passwordy2
+
+    div(ng-controller="FailSafe")
+        div(ng-view)
+
+    .ng-block
+        error
+
+    .ng-block
+        div(ng-controller="ProvideCtrl")
+            | Person's full name: 
+            span {{data.name}}
+            br
+            | Person's age: 
+            span {{data.age}}
+
+
+
+
+
+
+
+
+
+
