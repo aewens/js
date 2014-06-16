@@ -20,11 +20,19 @@ block app
     .page
     
     script#status-tmpl(type="text/template")
-        a.pull-left(href="#")
-            .block.media-object
-        .media-body
-            h4.media-heading <%= author %>: 
-            p <%= content %>
+        p
+            strong.s_author <%= author %>: 
+            span.s_content <%= content %>
+            &nbsp;
+            a.edit(href="#") [edit]
+            a.delete(href="#") [delete]
+    
+    //- script#status-tmpl(type="text/template")
+    //-     a.pull-left(href="#")
+    //-         .block.media-object
+    //-     .media-body
+    //-         h4.media-heading <%= author %>: 
+    //-         p <%= content %>
 
 
 

@@ -3,13 +3,43 @@
   define(["jquery", "underscore", "backbone", "models/status"], function($, _, Backbone, Status) {
     var StatusView;
     StatusView = Backbone.View.extend({
-      model: new Status,
       tagName: "div",
+      events: {
+        "click .edit": "edit",
+        "click .delete": "delete",
+        "blur .s_content": "close",
+        "keypress .s_content": "ifenter"
+      },
       initialize: function() {
         return this.template = _.template($("#status-tmpl").html());
       },
+      edit: function(e) {
+        e.preventDefault();
+        return this.$(".s_content").attr("contenteditable", true).focus();
+      },
+      close: function(e) {
+        var content;
+        content = this.$(".s_content").text();
+        this.model.get("status").set("content", content);
+        return this.$(".s_content").removeAttr("contenteditable");
+      },
+      ifenter: function(e) {
+        var keyCode, self;
+        keyCode = e.which || e.keyCode;
+        self = this;
+        if (keyCode === 13) {
+          this.close();
+          return _.delay((function() {
+            return self.$(".s_content").blur();
+          }), 100);
+        }
+      },
+      "delete": function(e) {
+        e.preventDefault();
+        return this.model.get("status_list").remove(this.model.get("status"));
+      },
       render: function() {
-        $(this.el).addClass("media").html(this.template(this.model.toJSON()));
+        this.$el.html(this.template(this.model.get("status").toJSON()));
         return this;
       }
     });
