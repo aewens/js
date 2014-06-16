@@ -3,4 +3,6 @@ define ["underscore", "backbone"], (_, Backbone) ->
         defaults: ->
             author: ""
             content: ""
+            reply: false
+            depth: 0
     return Status

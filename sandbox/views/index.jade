@@ -8,7 +8,7 @@ block app
         .form-group
             .input-group
                 span.input-group-addon @
-                input.form-control(type="text", name="author", autorfocus,
+                input.form-control(type="text", name="author", autofocus,
                                     placeholder="Username...")
         .form-group
             .input-group
@@ -20,8 +20,11 @@ block app
     .page
     
     script#status-tmpl(type="text/template")
-        span.author  <%= author %>: 
-        span.content <%= content %>
+        a.pull-left(href="#")
+            .block.media-object
+        .media-body
+            h4.media-heading <%= author %>: 
+            p <%= content %>
 
 
 

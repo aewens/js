@@ -6,7 +6,9 @@
       defaults: function() {
         return {
           author: "",
-          content: ""
+          content: "",
+          reply: false,
+          depth: 0
         };
       }
     });
