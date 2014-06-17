@@ -4,6 +4,9 @@ define [
     "backbone", 
     "models/status"
 ], ($, _, Backbone, Status) ->
+    _.templateSettings =
+        interpolate: /\{\{(.+?)\}\}/g
+        
     StatusView = Backbone.View.extend
         tagName: "div"
         events:
@@ -30,9 +33,9 @@ define [
             e.preventDefault()
             this.model.get("status_list").remove this.model.get("status")
         render: ->
-            # tmpl = this.template this.model.get("status").toJSON()
-            # $(this.el).addClass("media").html tmpl
-            this.$el.html this.template this.model.get("status").toJSON()
+            tmpl = this.template this.model.get("status").toJSON()
+            $(this.el).addClass("media").html tmpl
+            # this.$el.html this.template this.model.get("status").toJSON()
             return this
         
     return StatusView

@@ -2,6 +2,9 @@
 (function() {
   define(["jquery", "underscore", "backbone", "views/status_view"], function($, _, Backbone, StatusView) {
     var StatusiView;
+    _.templateSettings = {
+      interpolate: /\{\{(.+?)\}\}/g
+    };
     StatusiView = Backbone.View.extend({
       el: $(".page"),
       initialize: function() {

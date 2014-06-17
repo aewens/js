@@ -2,6 +2,9 @@
 (function() {
   define(["jquery", "underscore", "backbone", "models/status"], function($, _, Backbone, Status) {
     var StatusView;
+    _.templateSettings = {
+      interpolate: /\{\{(.+?)\}\}/g
+    };
     StatusView = Backbone.View.extend({
       tagName: "div",
       events: {
@@ -39,7 +42,9 @@
         return this.model.get("status_list").remove(this.model.get("status"));
       },
       render: function() {
-        this.$el.html(this.template(this.model.get("status").toJSON()));
+        var tmpl;
+        tmpl = this.template(this.model.get("status").toJSON());
+        $(this.el).addClass("media").html(tmpl);
         return this;
       }
     });

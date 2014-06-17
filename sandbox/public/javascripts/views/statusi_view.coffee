@@ -4,6 +4,9 @@ define [
     "backbone"
     "views/status_view"
 ], ($, _, Backbone, StatusView) ->
+    _.templateSettings =
+        interpolate: /\{\{(.+?)\}\}/g
+    
     StatusiView = Backbone.View.extend
         el: $(".page")
         initialize: ->
