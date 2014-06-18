@@ -1,43 +1,10 @@
 extends layout
 
 block app
-    h1 Statusi
-    br
-    form#new-status(method="post")
-        legend New Status
-        .form-group
-            .input-group
-                span.input-group-addon @
-                input.form-control(type="text", name="author", autofocus,
-                                    placeholder="Username...")
-        .form-group
-            .input-group
-                input.form-control(type="text", name="content",
-                                    placeholder="Status...")
-                span.input-group-btn
-                    input.btn.btn-default(type="submit") Create
-    hr
-    .page
-    
-    //- script#status-tmpl(type="text/template")
-    //-     p
-    //-         strong.s_author {{ author }}: 
-    //-         span.s_content {{ content }}
-    //-         &nbsp;
-    //-         a.edit(href="#") [edit]
-    //-         a.delete(href="#") [delete]
-    
-    script#status-tmpl(type="text/template")
-        a.pull-left(href="#")
-            .block.media-object
-        .media-body
-            h4.media-heading.s_author {{ author }}: 
-            p.s_content {{ content }}
-            hr
-            span
-                a.edit(href="#") [edit]
-                a.delete(href="#") [delete]
-
+    canvas#canvas
+        | Your browser does not support &lt;canvas&gt;, try one of 
+        a(href="http://browsehappy.com/") these 
+        | instead.
 
 
 

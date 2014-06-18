@@ -8,24 +8,23 @@
     }
   });
 
-  require(["jquery", "underscore", "backbone", "models/status", "collections/status_list", "views/statusi_view"], function($, _, Backbone, Status, StatusList, StatusiView) {
-    var status_list;
-    status_list = new StatusList;
+  require(["jquery", "underscore", "backbone", "models/vertex", "collections/vertex_list", "views/vertex_view", "modules/vertex_ctrl"], function($, _, Backbone, Vertex, VertexList, VertexView) {
     return $(document).ready(function() {
-      var statusi_view;
-      $("#new-status").submit(function(e) {
-        var status;
-        e.preventDefault();
-        status = new Status({
-          author: $("input[name=author]").val(),
-          content: $("input[name=content]").val()
-        });
-        status_list.add(status);
-        return false;
-      });
-      return statusi_view = new StatusiView({
-        model: status_list
-      });
+      var vertex_view, vertices;
+      vertices = new VertexList;
+      vertex_view = (new VertexView).run(vertices);
+      vertices.add(new Vertex({
+        x: 100,
+        y: 100,
+        radius: 10
+      }));
+      return setTimeout((function() {
+        return vertices.add(new Vertex({
+          x: 200,
+          y: 200,
+          radius: 10
+        }));
+      }), 500);
     });
   });
 

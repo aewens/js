@@ -1,4 +1,5 @@
 require.config
+    # urlArgs: "nocache=" + (new Date).getTime()
     paths: 
         "jquery":     "../vendor/jquery/dist/jquery.min"
         "underscore": "../vendor/underscore/underscore"
@@ -8,20 +9,17 @@ require [
     "jquery", 
     "underscore", 
     "backbone",
-    "models/status",
-    "collections/status_list",
-    "views/statusi_view"
-], ($, _, Backbone, Status, StatusList, StatusiView) ->
-    status_list = new StatusList
-            
+    "models/vertex",
+    "collections/vertex_list",
+    "views/vertex_view",
+    "modules/vertex_ctrl"
+], ($, _, Backbone, Vertex, VertexList,  VertexView) ->
     $(document).ready ->
-        $("#new-status").submit (e) ->
-            e.preventDefault()
-            status = new Status
-                author: $("input[name=author]").val()
-                content: $("input[name=content]").val()
-            status_list.add status
-            # console.log status_list.toJSON()
-            return false
+        vertices = new VertexList
+                
+        vertex_view = (new VertexView).run(vertices)
         
-        statusi_view = new StatusiView {model: status_list}
+        vertices.add new Vertex {x: 100, y: 100, radius: 10}
+        setTimeout (->
+            vertices.add new Vertex {x: 200, y: 200, radius: 10}
+        ), 500
