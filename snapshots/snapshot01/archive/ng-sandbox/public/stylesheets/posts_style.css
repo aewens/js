@@ -1,0 +1,208 @@
+@import url("http://fonts.googleapis.com/css?family=Quicksand");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:700,400");
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+html,
+body {
+  font-size: 90%;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.5;
+  text-align: left;
+}
+a {
+  text-decoration: none;
+  padding: 2px 4px;
+}
+a:hover,
+a:active {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+h3 {
+  margin: 24px auto;
+}
+span.button {
+  padding: 2px 4px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+span.button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+span.button:active {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.body {
+  margin: 0 auto;
+  width: 70%;
+  clear: both;
+}
+.xheader img {
+  width: 30%;
+  height: auto;
+  margin: 2% 0;
+}
+.xheader nav {
+  height: 40px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.xheader nav ul {
+  list-style: none;
+  margin: 0 auto;
+}
+.xheader nav ul li {
+  float: left;
+  display: inline;
+}
+.xheader nav ul li a {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.xheader nav ul li a:link,
+.xheader nav ul li a:visited {
+  display: inline-block;
+  padding: 12px 25px;
+  height: 16px;
+}
+.xheader nav ul li a:hover,
+.xheader nav ul li a:active {
+  text-shadow: none;
+}
+.app .xcontent {
+  line-height: 25px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.app .xcontent .content {
+  width: 70%;
+  float: left;
+}
+.app .xcontent .content article {
+  padding: 3% 5%;
+  margin-top: 2%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.app .xcontent .content article.post {
+  display: none;
+}
+.app .xcontent .content article:not(.post):not(.ignore) footer,
+.app .xcontent .content article:not(.post):not(.ignore) section {
+  display: none;
+}
+.app .xcontent .content article .info {
+  font-style: italic;
+  font-size: 90%;
+}
+.app .xcontent .content article form {
+  padding-right: 5%;
+}
+aside {
+  width: 22%;
+  float: left;
+  padding: 2% 3%;
+  margin: 1.4% 0 0 2%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.xfooter {
+  width: 100%;
+  height: 40px;
+  float: left;
+  margin: 2% 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.xfooter p {
+  width: 90%;
+  height: 16px;
+  margin: 12px auto;
+}
+@media only screen and (min-width: 980px) {
+  .tag {
+    width: 60px;
+    display: inline-block;
+  }
+}
+@media only screen and (min-width: 640px) and (max-width: 979px) {
+  .body {
+    width: 95%;
+  }
+  .xheader img {
+    width: 50%;
+  }
+  .tag {
+    width: 0;
+    display: block;
+  }
+}
+@media only screen and (min-width: 144px) and (max-width: 639px) {
+  .body {
+    width: 95%;
+  }
+  .xheader img {
+    width: 100%;
+  }
+  .xheader nav {
+    height: 160px;
+  }
+  .xheader nav ul {
+    padding: 0;
+  }
+  .xheader nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+  .xheader nav ul li a:link,
+  .xheader nav ul li a:visited {
+    padding: 12px 25px;
+    height: 16px;
+    display: block;
+  }
+  .app .xcontent .content {
+    width: 100%;
+    float: left;
+  }
+  .app .xcontent .content article {
+    margin-top: 4%;
+  }
+  .app .xcontent .content article .info {
+    display: none;
+  }
+  aside {
+    width: 94%;
+    float: left;
+    padding: 2% 3%;
+    margin: 4% auto 0;
+  }
+  aside .tag {
+    width: 60px;
+    display: inline-block;
+  }
+  .xfooter {
+    float: left;
+    margin: 4% 0;
+  }
+  .xfooter span {
+    display: none;
+  }
+}
