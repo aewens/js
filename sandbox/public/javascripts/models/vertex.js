@@ -7,8 +7,7 @@
         return {
           x: 0,
           y: 0,
-          radius: 0,
-          node: 0
+          radius: 0
         };
       },
       contains: function(x, y, radius) {
