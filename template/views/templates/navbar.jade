@@ -1,0 +1,59 @@
+!!! 5
+.container
+  // Static navbar
+  .navbar.navbar-default(role='navigation')
+    .container-fluid
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='http://getbootstrap.com/examples/navbar/#') Project name
+      .navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li.active
+            a(href='http://getbootstrap.com/examples/navbar/#') Link
+          li
+            a(href='http://getbootstrap.com/examples/navbar/#') Link
+          li
+            a(href='http://getbootstrap.com/examples/navbar/#') Link
+          li.dropdown
+            a.dropdown-toggle(href='http://getbootstrap.com/examples/navbar/#', data-toggle='dropdown')
+              | Dropdown
+              b.caret
+            ul.dropdown-menu
+              li
+                a(href='http://getbootstrap.com/examples/navbar/#') Action
+              li
+                a(href='http://getbootstrap.com/examples/navbar/#') Another action
+              li
+                a(href='http://getbootstrap.com/examples/navbar/#') Something else here
+              li.divider
+              li.dropdown-header Nav header
+              li
+                a(href='http://getbootstrap.com/examples/navbar/#') Separated link
+              li
+                a(href='http://getbootstrap.com/examples/navbar/#') One more separated link
+        ul.nav.navbar-nav.navbar-right
+          li.active
+            a(href='./navbar_files/navbar.html') Default
+          li
+            a(href='http://getbootstrap.com/examples/navbar-static-top/') Static top
+          li
+            a(href='http://getbootstrap.com/examples/navbar-fixed-top/') Fixed top
+      // /.nav-collapse
+    // /.container-fluid
+  // Main component for a primary marketing message or call to action
+  .jumbotron
+    h1 Navbar example
+    p
+      | This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.
+    p
+      a.btn.btn-lg.btn-primary(href='http://getbootstrap.com/components/#navbar', role='button') View navbar docs »
+// /container
+//
+   Bootstrap core JavaScript
+      ================================================== 
+// Placed at the end of the document so the pages load faster
+script(src='./navbar_files/jquery.min.js')
