@@ -1,0 +1,1 @@
+app = angular.module "canvasApp", ["ngCookies","ngResource","ngSanitize","ngRoute"]

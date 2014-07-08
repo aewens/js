@@ -1,0 +1,74 @@
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:700,400");
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.transition {
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  -ms-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+}
+html,
+body {
+  font-size: 90%;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.5;
+  text-align: left;
+  background: #708090;
+  color: #000;
+  position: relative;
+  height: 100%;
+}
+a {
+  text-decoration: none;
+  padding: 2px 4px;
+}
+a:link,
+a:visited {
+  color: #0c5a9f;
+}
+a:hover,
+a:active {
+  color: #fff;
+  background: #0c5a9f;
+  text-decoration: none;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.body {
+  width: 70%;
+  margin: 0 auto;
+}
+.app .view .cmd {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.2), 0 3px 0 -2px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.2), 0 3px 0 -2px rgba(0,0,0,0.1);
+}
+.app .view .cmd.shift {
+  position: relative;
+  margin: 25px auto;
+}
+.app .view .sheet {
+  width: 96%;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2%;
+  display: none;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.2), 0 3px 0 -2px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5), inset 0 0 0 3px rgba(112,128,144,0.2), 0 3px 0 -2px rgba(0,0,0,0.1);
+}
+.app .view .sheet.shift {
+  display: block;
+}
