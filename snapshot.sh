@@ -47,7 +47,7 @@ mkdir snapshots/$NEXT_SNAP_NAME
 for f in `ls | grep -v snapshot`
 do
   # copy it into the next snapshot directory.
-  cp -r $f snapshots/$NEXT_SNAP_NAME
+  cp -rv $f snapshots/$NEXT_SNAP_NAME
 done
 
 # Add the README.md file if there was an argument.
