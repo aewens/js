@@ -14,6 +14,7 @@ define [
             model.on("remove", this.render, this)
         render: ->
             ctx.clearRect(0, 0, canvas.width, canvas.height)
+            model.sort(model)
             
             self = this
             

@@ -3,7 +3,15 @@
   define(["underscore", "backbone", "models/vertex"], function(_, Backbone, Vertex) {
     var VertexList;
     VertexList = Backbone.Collection.extend({
-      model: Vertex
+      model: Vertex,
+      initialize: function() {
+        return this.sortVar = "node";
+      },
+      comparator: function(collection) {
+        var that;
+        that = this;
+        return collection.get(that.sortVar);
+      }
     });
     return new VertexList;
   });

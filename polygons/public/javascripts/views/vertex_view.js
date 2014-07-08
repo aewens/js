@@ -15,6 +15,7 @@
       VertexView.prototype.render = function() {
         var prev, self;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        model.sort(model);
         self = this;
         ctx.beginPath();
         prev = model.last();
