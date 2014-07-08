@@ -4,6 +4,7 @@ define ["underscore", "backbone"], (_, Backbone) ->
             x: 0
             y: 0
             radius: 0
+            node: 0
         contains: (x, y, radius) ->
             dx       = x - this.get("x")
             dy       = y - this.get("y")
