@@ -17,5 +17,3 @@ require [
     $(document).ready ->
         vertex_view = new VertexView
         vertex_ctrl = new VertexCtrl
-        # 
-        # VertexList.add new Vertex {x: 100, y: 100, radius: 10}

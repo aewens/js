@@ -5,7 +5,7 @@
     Xs = Backbone.Collection.extend({
       model: X
     });
-    return StatusList;
+    return Xs;
   });
 
 }).call(this);
