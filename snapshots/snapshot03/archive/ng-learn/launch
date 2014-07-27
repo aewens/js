@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-coffee -wc public/javascripts/ &
-supervisor -w public/javascripts/ -e 'js|node' -x node app.js

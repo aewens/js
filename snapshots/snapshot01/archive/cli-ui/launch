@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-ruby compile.rb
-coffee -wc public/javascripts/ &
-coffee -wc public/javascripts/compile &
-supervisor -w public/javascripts/ -x node app.js
